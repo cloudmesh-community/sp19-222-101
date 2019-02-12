@@ -1,4 +1,5 @@
-def isPrime(n):
+def isPrime(n_str):
+    n = int(n_str)
     if(n<2):
         return False;
     factors = []

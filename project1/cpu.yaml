@@ -30,51 +30,47 @@ paths:
           description: "CPU info"
           schema: 
             $ref: "#/definitions/CPU"
-  /prime:
+  /pic:
     get:
       tags:
-        - prime
+        - PICTURE
+      operationId: picture.showPic
+      description: "Shows a picture"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Picture"
+          schema: {}
+  /monkey:
+    get:
+      tags:
+        - MONKEY
+      operationId: picture2.showPic
+      description: "Shows a picture"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Picture"
+          schema: {}
+  /prime/<n_str>:
+    get:
+      tags:
+        - PRIME
       operationId: prime.isPrime
-      description: "Returns whether the input is prime or not"
+      description: "Determines prime"
       produces:
         - "application/json"
       responses:
         "200":
-          description: "Is Prime"
-          schema:
-            $ref: "#definitions/prime"
-  /add:
-    get:
-      tags:
-        - add
-      operationId: add.add
-      description: "Returns the sum of the two inputs"
-      produces:
-        - "application/json"
-      responses:
-        "200":
-          description: "Adder"
-          schema:
-            $ref: "#definitions/add"
+          description: "Prime"
+          schema: {}
 definitions:
   CPU:
     type: "object"
     required: 
       - "model"
     properties: 
-      model:
-        type: "string"
-  prime:
-    type: "object"
-    required:
-      - "model"
-    properties:
-      model:
-        type: "string"
-  add:
-    type: "object"
-    required:
-      - "model"
-    properties:
       model:
         type: "string"
