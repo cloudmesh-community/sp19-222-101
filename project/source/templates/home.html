@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>Application Home Page</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="banner">Spam Email Checker</h1>
+	<p>This tool determines whether or not your email is considered spam. To check, upload a raw text file of the body of the email and click send.</p>
+	<input type="file" id="textupload">
+	</br>
+	</br>
+	<button id="sendButton">Send</button>
+        </div>
+            <div class="error">
+        </div>
+	<p id="demo"></p>
+</body>
+<script>
+    var sendButton = document.getElementById("sendButton");
+    var file;
+    var fileName;
+    
+    sendButton.addEventListener("click", myFunction);
+
+    function myFunction()
+    {  
+        file = document.getElementById("textupload").value;
+        fileName = getFileName(file);
+        if(!verifyFile(fileName))
+        {
+            alert("File must be a .txt file")
+            return;
+        }
+        document.getElementById("demo").innerHTML = fileName;
+    }
+
+    function getFileName(file) 
+    {
+        var index = file.lastIndexOf('\\');
+        var str = file.substring(index+1);
+        return str;
+    }
+
+    function verifyFile(file) 
+    {
+        var index = file.lastIndexOf('.');
+        var extension = file.substring(index+1);
+        if(extension!="txt")
+            return false;
+        return true;
+    }
+</script>
+</html>
