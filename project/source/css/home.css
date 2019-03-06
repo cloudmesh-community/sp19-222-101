@@ -1,0 +1,17 @@
+h1,p {
+    background: white;
+    text-align: center;
+}
+
+div {
+    /*align-content: center;*/ 
+    text-align: center;
+}
+
+.upload {
+    padding: 0px 0px 0px 165px;
+}
+
+.hide {
+    display: none;
+}

@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head> 
-    <meta charset="UTF-8">
-    <title>Application Home Page</title>
-    <!--<style src="/css/home.css"></style>-->
-    <style>
-        h1,p {
-            background: white;
-            text-align: center;
-        }
-
-        div {
-            /*align-content: center;*/
-            text-align: center;
-        }
-
-        .upload {
-            padding: 0px 0px 0px 165px;
-        }
-
-        .hide {
-            display: none;
-        }
-
-        .image {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 30%;
-        }
-        
-    </style>
-</head>
-<body>
-    <img src="https://www.playersguildofdearborn.org/wp-content/uploads/2012/03/Spamalot_glow.png" class="image"></img>
-    <h1>Spam Email Checker</h1>
-    <p>This tool determines whether or not your email is considered spam. To check, upload a raw text file (with extension .txt) of the body of the email and click send.</p>
-
-    <div>
-        <input type="file" id="textupload" class="upload">
-        </br>
-        </br>
-	    <button id="sendButton">Send</button>
-    </div>
-        <p id="filename"></p>
-        <p id="filetype"></p>
-        <p id="filesize"></p>
-</body>
-<!--<script src="/js/home.js"></script>-->
-<script>
-    var control = document.getElementById("textupload");
+var control = document.getElementById("textupload");
     var send = document.getElementById("sendButton");
     control.addEventListener("change", myFunction, false);
     send.addEventListener("click", sendFunc);
@@ -95,5 +44,3 @@
             console.log("Type: " + file[0].type);
             console.log("Size: " + file[0].size + " bytes");*/
     }
-</script>
-</html>
