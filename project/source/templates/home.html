@@ -3,38 +3,7 @@
 <head> 
     <meta charset="UTF-8">
     <title>Application Home Page</title>
-    <!--<style src="/css/home.css"></style>-->
-    <style>
-        h1,p {
-            background: white;
-            text-align: center;
-        }
-
-        div {
-            /*align-content: center;*/
-            text-align: center;
-        }
-
-        button {
-            border-radius: 3px;
-        }
-
-        .upload {
-            padding: 0px 0px 0px 165px;
-        }
-
-        .hide {
-            display: none;
-        }
-
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 30%;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="/static/css/home.css">
 </head>
 <body>
     <img src="https://www.playersguildofdearborn.org/wp-content/uploads/2012/03/Spamalot_glow.png"></img>
@@ -54,54 +23,5 @@
         <p id="filetype"></p>
         <p id="filesize"></p>
 </body>
-<!--<script src="/js/home.js"></script>-->
-<script>
-    var control = document.getElementById("textupload");
-    var send = document.getElementById("sendButton");
-    control.addEventListener("change", myFunction, false);
-    send.addEventListener("click", sendFunc);
-
-    function myFunction()  
-    {
-        var i = 0,
-        file = control.files;
-
-            console.log("Filename: " + file[i].name);
-            console.log("Type: " + file[i].type);
-            console.log("Size: " + file[i].size + " bytes");
-    }
-
-    function sendFunc()
-    {
-        var files = control.files;
-        if(files.length < 1)
-        {
-            document.getElementById("filename").innerHTML = "";
-            document.getElementById("filetype").innerHTML = "";
-            document.getElementById("filesize").innerHTML = "";
-            alert("Please choose a file before sending");
-            return;
-        }
-        var file = files[0],
-            index = file.name.lastIndexOf('.'),
-            extension = file.name.substring(index+1);
-
-        if(extension != "txt")
-        {
-            
-            document.getElementById("filename").innerHTML = "";
-            document.getElementById("filetype").innerHTML = "";
-            document.getElementById("filesize").innerHTML = "";
-            alert("File must be a .txt file");
-            return;
-        }
-
-            document.getElementById("filename").innerHTML = "Filename: " + file.name;
-            document.getElementById("filetype").innerHTML = "Type: " + file.type;
-            document.getElementById("filesize").innerHTML = "Size: " + file.size + " bytes";
-            /*console.log("Filename: " + file[0].name);
-            console.log("Type: " + file[0].type);
-            console.log("Size: " + file[0].size + " bytes");*/
-    }
-</script>
+<script src="/static/js/home.js"></script>
 </html>

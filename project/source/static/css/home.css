@@ -4,8 +4,12 @@ h1,p {
 }
 
 div {
-    /*align-content: center;*/ 
+    /*align-content: center;*/
     text-align: center;
+}
+
+button {
+    border-radius: 3px;
 }
 
 .upload {
@@ -14,4 +18,11 @@ div {
 
 .hide {
     display: none;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
 }

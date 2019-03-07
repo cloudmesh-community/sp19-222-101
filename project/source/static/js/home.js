@@ -37,6 +37,7 @@ var control = document.getElementById("textupload");
             alert("File must be a .txt file");
             return;
         }
+
             document.getElementById("filename").innerHTML = "Filename: " + file.name;
             document.getElementById("filetype").innerHTML = "Type: " + file.type;
             document.getElementById("filesize").innerHTML = "Size: " + file.size + " bytes";
