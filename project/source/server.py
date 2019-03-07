@@ -16,6 +16,9 @@ app.add_api("master.yml")
 @app.route("/")
 def home():
    return render_template("home.html")
+@app.route("/templates/other.html")
+def other():
+   return render_template("other.html")
 
 
 if __name__ == "__main__":
