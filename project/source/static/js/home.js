@@ -1,7 +1,12 @@
 var control = document.getElementById("textupload");
-    var send = document.getElementById("sendButton");
-    control.addEventListener("change", myFunction, false);
-    send.addEventListener("click", sendFunc);
+var send = document.getElementById("sendButton");
+var other = document.getElementById("other0");
+control.addEventListener("change", myFunction, false);
+send.addEventListener("click", sendFunc);
+other.addEventListener("mouseenter", changeFunc);
+other.addEventListener("mouseleave", changeFunc2);
+
+
 
     function myFunction()  
     {
@@ -44,4 +49,17 @@ var control = document.getElementById("textupload");
             /*console.log("Filename: " + file[0].name);
             console.log("Type: " + file[0].type);
             console.log("Size: " + file[0].size + " bytes");*/
+    }
+
+    function changeFunc()
+    {
+        document.getElementById("other1").className = "other1V";
+        document.getElementById("other2").className = "other2V";
+
+    }
+
+    function changeFunc2()
+    {
+        document.getElementById("other1").className = "other1H";
+        document.getElementById("other2").className = "other1H";
     }

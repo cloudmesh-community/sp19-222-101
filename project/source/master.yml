@@ -29,3 +29,15 @@ paths:
         "200":
           description: "Adder"
           schema: {}
+  /monkey.jpg:
+    get:
+      tags:
+        - MONKEY
+      operationId: showImage.showImage
+      description: "Shows Image"
+      produces:
+        - "application/jpg"
+      responses:
+        "200":
+          description: "Picture"
+          schema: {}

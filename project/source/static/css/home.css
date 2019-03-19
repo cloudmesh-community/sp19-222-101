@@ -16,6 +16,7 @@ button {
     padding: 0px 0px 0px 165px;
 }
 
+
 .hide {
     display: none;
 }
@@ -25,4 +26,33 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+}
+
+.links {
+    background: gray;
+    /*display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2px;
+    width: 5%;*/
+}
+
+.other {
+    color: blue;
+}
+
+.other1H {
+    visibility: hidden;
+}
+
+.other1V {
+    transition: all 2s ease;
+    visibility: visible;
+    background: darkgray;
+}
+
+.other2V {
+    visibility: visible;
+    background: darkgray;
+    transition: all 3s ease;
 }

@@ -5,6 +5,36 @@
     <title>Application Home Page</title>
     <link rel="stylesheet" href="/static/css/home.css">
 </head>
+<!--<style>
+    .links {
+        background: gray;
+        /*display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2px;
+        width: 5%;*/
+    }
+
+    .other {
+        color: blue;
+    }
+
+    .other1H {
+        visibility: hidden;
+    }
+
+    .other1V {
+        transition: all 2s ease;
+        visibility: visible;
+        background: darkgray;
+    }
+
+    .other2V {
+        visibility: visible;
+        background: darkgray;
+        transition: all 3s ease;
+    }
+</style>-->
 <body>
     <img src="https://www.playersguildofdearborn.org/wp-content/uploads/2012/03/Spamalot_glow.png"></img>
     <h1>Spam Email Checker</h1>
@@ -17,12 +47,35 @@
         <button id="sendButton">Send</button>
         </br>
         </br>
-        <a href="/templates/other.html">other page</a>
-        <img src="/monkey.jpg"></img>
+    </div>
+    <div class="links">
+        <a href="/templates/other.html" class="other" id="other0">other page</a>
+        </br>   
+        <a href="#" class="other1H" id="other1">Hello</a>
+        </br>
+        <a href="#" class="other1H" id="other2">World!</a>
+        </br>
     </div>
         <p id="filename"></p>
         <p id="filetype"></p>
         <p id="filesize"></p>
 </body>
 <script src="/static/js/home.js"></script>
+<!--<script>
+    var other = document.getElementById("other0");
+    other.addEventListener("mouseenter", changeFunc);
+    other.addEventListener("mouseleave", changeFunc2);
+
+    function changeFunc()
+    {
+        document.getElementById("other1").className = "other1V";
+        document.getElementById("other2").className = "other2V";
+
+    }
+    function changeFunc2()
+    {
+        document.getElementById("other1").className = "other1H";
+        document.getElementById("other2").className = "other1H";
+    }
+</script>-->
 </html>
