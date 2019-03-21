@@ -15,29 +15,12 @@ schemes:
 consumes: 
   - "application/json"
 produces: 
-  - "application/json"
+  - "text/html"
 paths: 
-  /add/<n1>&<n2>:
-    get:
-      tags:
-        - CPU
-      operationId: add.add
-      description: "Calculates sum"
-      produces:
-        - "application/json"
+  /upload:
+    post:
+      operationId: upload.upload
+      description: "Uploads a file"
       responses:
-        "200":
-          description: "Adder"
-          schema: {}
-  /monkey.jpg:
-    get:
-      tags:
-        - MONKEY
-      operationId: showImage.showImage
-      description: "Shows Image"
-      produces:
-        - "application/jpg"
-      responses:
-        "200":
-          description: "Picture"
-          schema: {}
+        "201":
+          description: "Upload"  
