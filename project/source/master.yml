@@ -24,3 +24,10 @@ paths:
       responses:
         "201":
           description: "Upload"  
+  /model:
+    get:
+      operationId: model.showModel
+      description: "Shows the model"
+      responses:
+        "200":
+          description: "Model"
