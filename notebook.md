@@ -21,3 +21,10 @@
 * Find distance between input and dataset
 * Find smallest distance/nearest neighbors
 * If input is within these distances, then you found your output
+
+# 3/28/19 Notes
+## Docker steps
+* Write Docker file
+* docker build -t name .
+* docker run -p 5000:5000 name 
+* To view containers: docker container ls -all

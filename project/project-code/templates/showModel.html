@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Prediction</title>
+    <link rel="stylesheet" href="/static/css/showModel.css">
+    <style>
+        h1, .main_desc {
+        text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .conf_desc {
+            text-align: center;
+        }
+
+        .my_table {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table,th,td {
+            margin: 1em auto;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        th,td {
+            padding: 15px;
+            text-align: center;
+        }
+        .header {
+            background: lightslategray;
+        }
+        .group {
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction: {{prediction}}</h1>
+    <p class="main_desc">
+        Your email has been classified as a {{prediction}} email. Below is some information
+        about this classifier and how it ended up at this conclusion.
+    </p>
+    </br>
+    <h3>Confusion Matrix</h3>
+    <p class="conf_desc">
+        This confusion matrix shows the number of emails the classifier
+        correctly identified as
+    </p>
+    <p class="conf_desc">
+        spam and ham, and the number of emails 
+        it incorrectly labeled as spam and ham.
+    </p>
+    <div class="my_table">
+        <table style="width:40%">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2" class="header">Predicted</th>
+            </tr>   
+            <tr>
+                <th class="group">Ham</th>
+                <th class="group">Spam</th>
+            </tr> 
+            <tr>
+                <th rowspan="2" class="header">Actual</th>
+                <th class="group">Ham</th>
+                <th>Var1</th>
+                <th>Var2</th>
+            </tr>
+            <tr>
+                <th class="group">Spam</th>
+                <th>Var3</th>
+                <th>Var4</th>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html> 
