@@ -19,7 +19,7 @@ produces:
 paths: 
   /upload:
     post:
-      operationId: py_scripts.upload.upload
+      operationId: py_scripts.gatherData.upload
       description: "Uploads a file"
       responses:
         "201":

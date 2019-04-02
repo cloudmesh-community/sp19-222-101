@@ -43,7 +43,7 @@
 <body>
     <h1>Prediction: {{prediction}}</h1>
     <p class="main_desc">
-        Your email has been classified as a {{prediction}} email. Below is some information
+        Your email "{{filename}}" has been classified as a {{prediction}} email. Below is some information
         about this classifier and how it ended up at this conclusion.
     </p>
     </br>
@@ -69,16 +69,17 @@
             <tr>
                 <th rowspan="2" class="header">Actual</th>
                 <th class="group">Ham</th>
-                <th>Var1</th>
-                <th>Var2</th>
+                <th>{{var1}}</th>
+                <th>{{var2}}</th>
             </tr>
             <tr>
                 <th class="group">Spam</th>
-                <th>Var3</th>
-                <th>Var4</th>
+                <th>{{var3}}</th>
+                <th>{{var4}}</th>
             </tr>
         </table>
     </div>
+    <p class="conf_desc">Oof that is an awful confusion matrix</p>
     
 </body>
 </html> 
