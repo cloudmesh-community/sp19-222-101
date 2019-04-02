@@ -4,6 +4,7 @@ from collections import Counter
 from sklearn.naive_bayes import MultinomialNB, GaussianNB, BernoulliNB
 from sklearn.svm import SVC, NuSVC, LinearSVC
 from sklearn.metrics import confusion_matrix
+from sklearn.utils import shuffle
 import pickle
 
 def make_Dictionary(train_dir):
@@ -59,15 +60,38 @@ def train():
     train_labels = np.zeros(702)
     train_labels[351:701] = 1
     train_matrix = extract_features(train_dir, dictionary)
-
+    print(train_matrix)
     # Training SVM and Naive bayes classifier
+
+    shuffle_train_matrix, shuffle_train_labels  = randomize(train_matrix, train_labels)
 
     model1 = MultinomialNB()
     model2 = LinearSVC()
-    model1.fit(train_matrix,train_labels)
-    model2.fit(train_matrix,train_labels)
-
-    pickle.dump(model1, open("Final_NB_Model", "wb"))
-    pickle.dump(model2, open("Final_SVC_Model", "wb"))
+    model1.fit(shuffle_train_matrix,shuffle_train_labels)
+    model2.fit(shuffle_train_matrix,shuffle_train_labels)
 
     
+    #pickle.dump(model1, open("Final_NB_Model", "wb"))
+    #pickle.dump(model2, open("Final_SVC_Model", "wb"))
+
+    #train_dir = '../dataset/ling-spam/train-mails'
+    #dictionary = make_Dictionary(train_dir)
+    #model1 = pickle.load(open("Final_NB_Model", "rb"))
+    #model2 = pickle.load(open("Final_SVC_Model", "rb"))
+    test_dir = '../dataset/ling-spam/test-mails'
+    test_matrix = extract_features(test_dir, dictionary)
+    test_labels = np.zeros(260)
+    test_labels[130:260] = 1
+    result1 = model1.predict(test_matrix)
+    result2 = model2.predict(test_matrix)
+
+    print("CONFUSION NB: ")
+    print(confusion_matrix(test_labels, result1))
+    print("CONFUSION SVM: ")
+    print(confusion_matrix(test_labels, result2))
+    
+
+
+def randomize(features, labels):
+  newF, newL = shuffle(features, labels, random_state=0)
+  return newF, newL
