@@ -66,7 +66,8 @@ def upload():
         #print(destination)
         #file.save(destination)
 
-    result = predict()
+    result, confusion_matrix = predict()
+    print("CONFUSION MATRIX[0][0] = ", confusion_matrix[0][0])
 
     return render_template("showModel.html", prediction=result)
 
@@ -75,12 +76,12 @@ def upload():
         dictionary = gatherData.make_Dictionary(train_dir)
         model1 = pickle.load(open("Final_NB_Model", "rb"))
         model2 = pickle.load(open("Final_SVC_Model", "rb"))
-        '''test_dir = '../dataset/ling-spam/test-mails'
+        test_dir = '../dataset/ling-spam/test-mails'
         test_matrix = gatherData.extract_features(test_dir, dictionary)
         test_labels = np.zeros(260)
         test_labels[130:260] = 1
-        result1 = model1.predict(test_matrix)
-        result2 = model2.predict(test_matrix)
+        result_test1 = model1.predict(test_matrix)
+        #result2 = model2.predict(test_matrix)
 
 
 
@@ -88,11 +89,13 @@ def upload():
         print("Result2: ", result2)
         nb_conf = confusion_matrix(test_labels, result1)
         svm_conf = confusion_matrix(test_labels, result2)
-        #print(confusion_matrix(test_labels,result1))
-        #print(confusion_matrix(test_labels,result2))'''
+        confusion_matrix = confusion_matrix(test_labels,result_test1)
+        #print(confusion_matrix(test_labels,result2))
+
         pred_dir = '../user_input_files'
         pred_matrix = gatherData.extract_features(pred_dir, dictionary)
         result1 = model1.predict(pred_matrix)
         result2 = model2.predict(pred_matrix)
 
-        return result1
+        return result1, confusion_matrix
+        
