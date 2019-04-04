@@ -1,15 +1,23 @@
-h1,.main_desc {
+h1, h2, h3 .main_desc {
     text-align: center;
-}
+    }
 
-h3 {
+.model_desc {
+    display: block;
+    line-height: 1.6;
+    margin-left: 20%;
+    margin-right: 20%;
     text-align: center;
+        
 }
-
 .conf_desc {
+    display: block;
+    line-height: 1.6;
+    margin-left: 30%;
+    margin-right: 30%;
     text-align: center;
 }
-
+    
 .my_table {
     display: block;
     margin-left: auto;
@@ -30,4 +38,14 @@ th,td {
 }
 .group {
     background: lightgray;
+}
+.total {
+    background: #F5F5F5;
+}
+
+.link {
+    display: block;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
 }

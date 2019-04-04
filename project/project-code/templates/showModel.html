@@ -3,20 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>Prediction</title>
-    <link rel="stylesheet" href="/static/css/showModel.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!--<link rel="stylesheet" href="/static/css/showModel.css">-->
     <style>
-        h1, .main_desc {
-        text-align: center;
-        }
-
-        h3 {
+        h1, h2, h3, .main_desc {
             text-align: center;
         }
 
+        .model_desc {
+            display: block;
+            line-height: 1.6;
+            margin-left: 20%;
+            margin-right: 20%;
+            text-align: center;
+            
+        }
         .conf_desc {
+            display: block;
+            line-height: 1.6;
+            margin-left: 30%;
+            margin-right: 30%;
             text-align: center;
         }
-
+        
         .my_table {
             display: block;
             margin-left: auto;
@@ -38,28 +47,57 @@
         .group {
             background: lightgray;
         }
+        .total {
+            background: #F5F5F5;
+        }
+
+        .link {
+            display: block;
+            margin-left: 30%;
+            margin-right: 30%;
+            text-align: center;
+        }
+
+        .scores_list {
+            display: block;
+            margin-left: 42%;
+            margin-right: 38%;
+        }
     </style>
 </head>
 <body>
     <h1>Prediction: {{prediction}}</h1>
     <p class="main_desc">
-        Your email "{{filename}}" has been classified as a {{prediction}} email. Below is some information
-        about this classifier and how it ended up at this conclusion.
+        Your email "{{filename}}" has been classified as a {{prediction}} email. 
+        Below is some information about this classifier and how it ended 
+        up at this conclusion.
+    </p>
+    </br>
+    <h2>How did this model conclude {{prediction}}?</h2>
+    <p class="model_desc">
+        This model has looked through thousands of different
+        spam and ham emails (ham for those who don't know
+        means a valid or non-spam email). After looking 
+        through all of the emails, it created a dictionary
+        containing the 3000 most common words used in all 
+        of the emails. It then looks at how often spam vs ham
+        emails used certain words, and uses a Naive-Bayes algorithm
+        to determine the most important features of spam/ham emails.
+    </p>
+    <p class="model_desc">
+        {{description}}
     </p>
     </br>
     <h3>Confusion Matrix</h3>
     <p class="conf_desc">
         This confusion matrix shows the number of emails the classifier
-        correctly identified as
-    </p>
-    <p class="conf_desc">
-        spam and ham, and the number of emails 
+        correctly identified as spam and ham, and the number of emails 
         it incorrectly labeled as spam and ham.
     </p>
     <div class="my_table">
         <table style="width:40%">
             <tr>
-                <th colspan="2" rowspan="2"></th>
+                <th colspan="2" rowspan="2" class="total">Total Emails: {{total}}</th>
                 <th colspan="2" class="header">Predicted</th>
             </tr>   
             <tr>
@@ -69,17 +107,40 @@
             <tr>
                 <th rowspan="2" class="header">Actual</th>
                 <th class="group">Ham</th>
-                <th>{{var1}}</th>
-                <th>{{var2}}</th>
+                <th>{{conf_matr_values[0]}}</th>
+                <th>{{conf_matr_values[1]}}</th>
             </tr>
             <tr>
                 <th class="group">Spam</th>
-                <th>{{var3}}</th>
-                <th>{{var4}}</th>
+                <th>{{conf_matr_values[2]}}</th>
+                <th>{{conf_matr_values[3]}}</th>
             </tr>
         </table>
     </div>
-    <p class="conf_desc">Oof that is an awful confusion matrix</p>
+
+    <h2>How good is this model?</h2>
+    <p class="model_desc">
+        To determine how good this model is, let's look at the accuracy,
+        precision, recall, and f1 score.
+    </p>
+    <ul class="scores_list">
+        <li>Accuracy: {{nb_scores[0]}}</li>
+        <li>Precision: {{nb_scores[1]}}</li>
+        <li>Recall: {{nb_scores[2]}}</li>
+        <li>F1 Score: {{nb_scores[3]}}</li>
+    </ul>
+
+    <p class="conf_desc">
+        The ideal f1 score is 1, but since that is nearly impossible,
+        we try to get as close to it as possible. Our score of {{nb_scores[3]}}
+        is not bad, but could be improved in the future.
+    </p>
+    
+    <a class="link" href="http://localhost:8080">Click Here</a>
+    <a class="link"> to upload another file</a>
+    
+    </br>
+    </br>
     
 </body>
 </html> 
