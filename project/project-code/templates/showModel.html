@@ -79,7 +79,7 @@
         spam and ham emails (ham for those who don't know
         means a valid or non-spam email). After looking 
         through all of the emails, it created a dictionary
-        containing the 3000 most common words used in all 
+        containing the 5000 most common words used in all 
         of the emails. It then looks at how often spam vs ham
         emails used certain words, and uses a Naive-Bayes algorithm
         to determine the most important features of spam/ham emails.
@@ -124,19 +124,22 @@
         precision, recall, and f1 score.
     </p>
     <ul class="scores_list">
-        <li>Accuracy: {{nb_scores[0]}}</li>
-        <li>Precision: {{nb_scores[1]}}</li>
-        <li>Recall: {{nb_scores[2]}}</li>
-        <li>F1 Score: {{nb_scores[3]}}</li>
+        <li>Accuracy: {{scores[0]}}</li>
+        <li>Precision: {{scores[1]}}</li>
+        <li>Recall: {{scores[2]}}</li>
+        <li>F1 Score: {{scores[3]}}</li>
     </ul>
 
     <p class="conf_desc">
         The ideal f1 score is 1, but since that is nearly impossible,
-        we try to get as close to it as possible. Our score of {{nb_scores[3]}}
-        is not bad, but could be improved in the future.
+        we try to get as close to it as possible. Our score of {{scores[3]}}
+        is not horrible, but could be improved in the future.
     </p>
+
+    <p class="conf_desc">Words: {{words}}</p>
+    <p class="conf_desc">Nums: {{nums}}</p>
     
-    <a class="link" href="http://localhost:8080">Click Here</a>
+    <a class="link" href="http://localhost:{{port}}">Click Here</a>
     <a class="link"> to upload another file</a>
     
     </br>

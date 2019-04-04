@@ -12,6 +12,16 @@ app = connexion.App(__name__, specification_dir="./")
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+def savePort():
+   portFile = open('port.txt', 'w')
+   portFile.write(str(myPort))
+   portFile.close()
+
+
+myPort = 8080
+savePort()
+
+
 # Read the yaml file to configure the endpoints
 app.add_api("master.yml")
 
@@ -22,5 +32,6 @@ def home():
 
 
 
+
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8080, debug=True)
+    app.run(host="127.0.0.1", port=myPort, debug=True)
