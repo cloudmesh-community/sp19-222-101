@@ -34,9 +34,28 @@ independence of each feature, the end classification sensitive to the
 distribution of dependencies between all features, which makes this method 
 successful when classifying trends in natural language situations.
 
+http://www.cs.unb.ca/~hzhang/publications/FLAIRS04ZhangH.pdf
+https://scikit-learn.org/stable/modules/naive_bayes.html
+
+SVM is also used to work with natural language classification. SVM models
+construct hyper-planes in the feature space of the dataset which can be used
+for classification. The hyper-plane is chosen by finding the optimal plane that
+maximizes its margins of separation between points of all classes. In other
+words, data points are separated from the others based on their features in an
+optimal manner. SVM algorithms are very effective classifiers when working with
+datasets that utilize a large number of features. In the case of emails, we can
+calculate the frequency of words contained in the email, which will be a vector
+with a large number of features. As a result, SVM is an appropriate model to
+classify spam emails due to the high dimensional dataset.
+
+https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72
+https://monkeylearn.com/blog/introduction-to-support-vector-machines-svm/
+
+Both the machine learning algorithms above are supervised learning algorithms.
 
 
 ##The Dataset
 
 
 ##Sources
+https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
