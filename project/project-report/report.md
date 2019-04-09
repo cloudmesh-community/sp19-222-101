@@ -48,11 +48,7 @@ calculate the frequency of words contained in the email, which will be a vector
 with a large number of features. As a result, SVM is an appropriate model to
 classify spam emails due to the high dimensional dataset.
 
-https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72
-https://monkeylearn.com/blog/introduction-to-support-vector-machines-svm/
-
 Both the machine learning algorithms above are supervised learning algorithms.
-
 
 ##The Dataset
 
