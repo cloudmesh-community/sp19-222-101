@@ -1,8 +1,8 @@
-#Welcome to Spamalot!
+# Welcome to Spamalot!
 
-##Abstract
+## Abstract
 
-##Introduction
+## Introduction
 
 The goal is the creation of a service that can classify spam emails. By the term
 "spam email", we refer to emails that are sent with malicious intent against the
@@ -19,7 +19,7 @@ It is also important to minimize the number of false positives - i.e. minimize
 the number of ham emails that are erroneously labeled as spam. This practice
 would be quite unfriendly to the user.
 
-##The Algorithm
+## The Algorithm
 
 We considered two main algorithms for our implementation of spam classification:
 the Naive Bayes and Support Vector Machine (SVM) algorithms.
@@ -60,7 +60,7 @@ than Naive Bayes and is prone to overfitting when there are not enough samples
 (gunn1998support). We experimented with both algorithms and chose which one to
 use based on their performance and respective statistics.
 
-##The Dataset
+## The Dataset
 
 The dataset used to train the machine learning algorithm is taken from a project
 that tested the effectiveness of five different variations of Naive Bayesian
@@ -70,8 +70,8 @@ messages from a member of Enron corpus with random ham-spam ratio
 
 The raw messages of each email generally contain too much information to be
 considered useful to train the classifier. We removed punctuation marks, special
-characters, and common words such as "the", "of", and "but". *********double
-check these are correct*****************
+characters, and common words such as "the", "of", and "but". *double
+check these are correct*
 
 Additionally, previous research has shown the usefulness of lemmatization in
 spam filtering (androutsopoulos2000evaluation), which is the process of grouping
@@ -87,7 +87,7 @@ As standard general practice, we randomly chose 80% of these vectors to train
 both the SVM and Naive Bayes models, and used the remaining 20% of these vectors
 to assess the quality of each model.
 
-##Model Results
+## Model Results
 
 The following image shows the confusion matrix for the Naive Bayes algorithm:
 
@@ -96,8 +96,8 @@ The following image shows the confusion matrix for the SVM algorithm:
 Due to the improved overall F1 score of the SVM model, we decided to use the SVM
 algorithm for our spam email classifier implementation.
 
-##Implementation
+## Implementation
 
 
-##Sources
+## Sources
 https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
