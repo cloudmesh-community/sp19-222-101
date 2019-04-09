@@ -56,9 +56,9 @@ Both the machine learning algorithms above are supervised learning
 algorithms. Both algorithms have weaknesses. The Naive Bayes algorithm works
 best when dependencies distribute evenly in classes (zhang2004optimality), but
 if this is not the case, Naive Bayes will not be optimal. SVM is much slower
-than Naive Bayes and is prone to overfitting when there are not enough samples
-(gunn1998support). We experimented with both algorithms and chose which one to
-use based on their performance and respective statistics.
+than Naive Bayes, but typically tend to be more statistically robust
+(sculley2007relaxed). We experimented with both algorithms and chose which one
+to use based on their performance and respective statistics.
 
 ## The Dataset
 
