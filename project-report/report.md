@@ -91,14 +91,16 @@ to assess the quality of each model.
 The following image shows the confusion matrix for the Naive Bayes algorithm:
 ![NB Confusion Matrix](images/NB_Confusion_Matrix.png)
 
+Although the Naive Bayes method correctly identified more ham as ham, it also
+mislabeled more spam as ham. For the user, this would translate to more malicious
+emails being allowed to pass through the filter without being flagged, which is
+dangerous.
+
 The following image shows the confusion matrix for the SVM algorithm:
 ![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png)
 
-Although the Naive Bayes method correctly identified more ham as ham, it also
-mislabeled more spam as ham. For the user, this would translate to more
-malicious emails being allowed to pass through the filter without being flagged,
-which is dangerous. On the other hand, the SVM method correctly identified more
-spam as spam. However, it also mislabeled more ham as spam. For the user, this
+On the other hand, the SVM method correctly identified more spam as
+spam. However, it also mislabeled more ham as spam. For the user, this
 translates to more benign emails being flagged as spam. Overall, the SVM method
 would be considered safer, because it would expose less harmful emails to the
 user, at the cost of incorrectly flagging ham emails more often. For this
