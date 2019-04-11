@@ -96,6 +96,7 @@ Due to the improved overall F1 score of the SVM model, we decided to use the SVM
 algorithm for our spam email classifier implementation.
 
 ## Implementation
+:joy::joy::joy: OMG WHO DID THIS :joy::joy::joy:
 The general workflow is as follows:
 ![rad flowchart](images/rad_workflow.png)
 :new_moon_with_face::full_moon_with_face::sun_with_face:
