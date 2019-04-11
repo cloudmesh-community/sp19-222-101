@@ -292,10 +292,10 @@ def predict(filename):
     
     
     pred_dir = str(path)+'/../user_input_files'
-    print(pred_dir)
+    #print(pred_dir)
     pred_matrix, do_not_use_this_var = extract_features(pred_dir, dictionary, 1)
     result_num = model2.predict(pred_matrix)
-    print(result_num)
+    #print(result_num)
     result = ""
     if(result_num==1):
       result = "Spam"
@@ -314,15 +314,15 @@ def predict(filename):
     dict_words = []
     dict_nums = []
 
-    print("PRED MATRIX:", pred_matrix)
-    print("LEN: ", len(pred_matrix))
+    #print("PRED MATRIX:", pred_matrix)
+    #print("LEN: ", len(pred_matrix))
 
     for i in range(0, len(pred_matrix[0])):
         if(pred_matrix[0][i] > 0):
           dict_words.append(dictionary[i][0])
           dict_nums.append(dictionary[i][1])
-    print("WORDS: ", dict_words)
-    print("NUMS: ", dict_nums)
+    #print("WORDS: ", dict_words)
+    #print("NUMS: ", dict_nums)
     
 
 

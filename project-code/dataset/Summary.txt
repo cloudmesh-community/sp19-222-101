@@ -1,0 +1,5 @@
+Training Emails:
+  - Total number: 4908
+
+Testing Emails:
+  - Total number: 1226
