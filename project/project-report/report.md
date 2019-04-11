@@ -69,9 +69,8 @@ messages from a member of Enron corpus with random ham-spam ratio
 (metsis2006spam). These emails are all labeled as ham or spam.
 
 The raw messages of each email generally contain too much information to be
-considered useful to train the classifier. We removed punctuation marks, special
-characters, and common words such as "the", "of", and "but". *double
-check these are correct*
+considered useful to train the classifier. We removed punctuation marks and
+special characters.
 
 Additionally, previous research has shown the usefulness of lemmatization in
 spam filtering (androutsopoulos2000evaluation), which is the process of grouping
@@ -97,7 +96,9 @@ Due to the improved overall F1 score of the SVM model, we decided to use the SVM
 algorithm for our spam email classifier implementation.
 
 ## Implementation
-
+The general workflow is as follows:
+![rad flowchart](images/rad_workflow.png)
+:new_moon_with_face::full_moon_with_face::sun_with_face:
 
 ## Sources
 https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
