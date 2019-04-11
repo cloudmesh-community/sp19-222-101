@@ -53,7 +53,6 @@ https://monkeylearn.com/blog/introduction-to-support-vector-machines-svm/
 
 Both the machine learning algorithms above are supervised learning algorithms.
 
-
 ##The Dataset
 
 
