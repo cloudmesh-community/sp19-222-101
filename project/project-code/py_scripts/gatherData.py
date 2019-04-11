@@ -10,8 +10,19 @@ from sklearn.metrics import confusion_matrix
 from sklearn.utils import shuffle
 import pickle
 
+# NO LONGER USE NAIVE-BAYES CODE #
 
+######################################################################
+######################################################################
+### This function makes a dictionary of the 5000 most common words ###
+### in our training files.                                         ###
+### RETURNS: the dictionary                                        ###
+######################################################################
+######################################################################
 def make_Dictionary(train_dir):
+    ############################################
+    ### Open all files in training directory ###
+    ############################################
     emails = [os.path.join(train_dir,f) for f in os.listdir(train_dir)]    
     all_words = []       
     for mail in emails:
@@ -23,7 +34,9 @@ def make_Dictionary(train_dir):
     dictionary = Counter(all_words)
     newDict = Counter(all_words)
 
-    # Remove unwanted words/letters/symbols
+    #############################################
+    ### Remove unwanted words/letters/symbols ###
+    #############################################
     list_to_remove = dictionary.keys()
     for item in list_to_remove:
         if item.isalpha() == False: 
@@ -39,7 +52,20 @@ def make_Dictionary(train_dir):
     dictionary = newDict.most_common(5000)
     return dictionary
 
+
+#################################################################
+#################################################################
+### This function extracts the features from each file given. ###
+### A feature list is an array of numbers that represent the  ###
+### frequency of words being used in each file.               ###
+### RETURNS: features, labels                                 ###
+#################################################################
+#################################################################
 def extract_features(mail_dir, dictionary, num_files): 
+
+    ####################################
+    ### Open files and extract words ###
+    ####################################
     files = [os.path.join(mail_dir,fi) for fi in os.listdir(mail_dir)]
     features_matrix = np.zeros((len(files),5000))
     docID = 0
@@ -66,81 +92,116 @@ def extract_features(mail_dir, dictionary, num_files):
       index += 1 
     return features_matrix, labels
 
+##############################################################
+##############################################################
+### This function trains the model and saves it to a file. ###
+### It also tests the model and saves a confusion matrix.  ###
+### RETURNS: void                                          ###
+##############################################################
+##############################################################
 def train():
 
     path = os.path.dirname(os.path.abspath(__file__))
-    # Create a dictionary of words with its frequency
-    train_dir = 'dataset/train-mails/'
+
+    #######################################################
+    ### Create a dictionary of words with its frequency ###
+    #######################################################
+    train_dir = '../dataset/train-mails/'
     dictionary = make_Dictionary(train_dir)
 
-    with open(path+'/dictionary.txt', 'wb') as handle:
+
+    ################################
+    ### Save dictionary for tool ###
+    ################################
+    with open(path+'/../savedFiles/dictionary.txt', 'wb') as handle:
       pickle.dump(dictionary, handle)
 
-    # Prepare feature vectors per training mail and its labels
+
+    ################################################################
+    ### Prepare feature vectors per training mail and its labels ###
+    ################################################################
     train_matrix, train_labels = extract_features(train_dir, dictionary, 4908)
 
-    ones = []
-    for i in range(0, len(train_labels)):
-      if(train_labels[i] == 1):
-          ones.append(1)
-      else:
-          ones.append(0)
-    print("ONES IN LABELS: ", ones)
-
-    # Shuffle data
+    ####################
+    ### Shuffle data ###
+    ####################
     shuffle_train_matrix, shuffle_train_labels  = randomize(train_matrix, train_labels)
 
-    # Training SVM and Naive bayes classifier
-    model1 = MultinomialNB()
+    ###############################################
+    ### Training SVM and Naive bayes classifier ###
+    ###############################################
+    # model1 = MultinomialNB()
     model2 = LinearSVC()
-    model1.fit(shuffle_train_matrix,shuffle_train_labels)
+    #model1.fit(shuffle_train_matrix,shuffle_train_labels)
     model2.fit(shuffle_train_matrix,shuffle_train_labels)
 
-    with open(path+'/Final_NB_Model', 'wb') as handle:
-      pickle.dump(model1, handle)
-    with open(path+'/Final_SVM_Model', 'wb') as handle:
+    #with open(path+'/Final_NB_Model', 'wb') as handle:
+      #pickle.dump(model1, handle)
+    with open(path+'/../savedFiles/Final_SVM_Model', 'wb') as handle:
       pickle.dump(model2, handle)
     
-    with open(str(path)+'/dictionary.txt', 'rb') as handle:
+    ##############################################
+    ### Make sure we have dictionary and model ###
+    ##############################################
+    with open(str(path)+'/../savedFiles/dictionary.txt', 'rb') as handle:
       dictionary = pickle.loads(handle.read())
 
-    model1 = pickle.load(open(str(path)+"/Final_NB_Model", "rb"))
-    model2 = pickle.load(open(str(path)+"/Final_SVM_Model", "rb"))
+    #model1 = pickle.load(open(str(path)+"/Final_NB_Model", "rb"))
+    model2 = pickle.load(open(str(path)+"/../savedFiles/Final_SVM_Model", "rb"))
     
-    # Testing and showing confusion matrices
-    test_dir = 'dataset/test-mails'
+    ########################################
+    ### Create and save confusion matrix ###
+    ########################################
+    test_dir = '../dataset/test-mails'
     test_matrix, test_labels = extract_features(test_dir, dictionary, 1226)
     
-    result1 = model1.predict(test_matrix)
+    #result1 = model1.predict(test_matrix)
     result2 = model2.predict(test_matrix)
 
-    nb_conf_matr = [0,0,0,0]
+    #nb_conf_matr = [0,0,0,0]
     svm_conf_matr = [0,0,0,0]
 
-    print("NB CONF: ", confusion_matrix(test_labels, result1))
-    print("SVM CONF: ", confusion_matrix(test_labels, result2))
+    #print("NB CONF: ", confusion_matrix(test_labels, result1))
+    #print("SVM CONF: ", confusion_matrix(test_labels, result2))
 
-    nb_conf_matr[0], nb_conf_matr[1], nb_conf_matr[2], nb_conf_matr[3], = confusion_matrix(test_labels, result1).ravel()
+    #nb_conf_matr[0], nb_conf_matr[1], nb_conf_matr[2], nb_conf_matr[3], = confusion_matrix(test_labels, result1).ravel()
     svm_conf_matr[0], svm_conf_matr[1], svm_conf_matr[2], svm_conf_matr[3], = confusion_matrix(test_labels, result2).ravel()
 
-    print("CONFUSION NB: ")
-    print(nb_conf_matr)
-    print("CONFUSION SVM: ")
-    print(svm_conf_matr)
+    #print("CONFUSION NB: ")
+    #print(nb_conf_matr)
+    #print("CONFUSION SVM: ")
+    #print(svm_conf_matr)
 
-    with open(path+'/NB_Conf_Matr', 'wb') as handle:
-      pickle.dump(nb_conf_matr, handle)
-    with open(path+'/SVM_Conf_Matr', 'wb') as handle:
+    #with open(path+'/NB_Conf_Matr', 'wb') as handle:
+      #pickle.dump(nb_conf_matr, handle)
+    with open(path+'/../savedFiles/SVM_Conf_Matr', 'wb') as handle:
       pickle.dump(svm_conf_matr, handle)
     
     
-
-
+########################################################
+########################################################
+### This function randomizes the features and labels ###
+### while keeping the features and labels synced.    ###
+### RETURNS: shuffled inputs                         ###
+########################################################
+########################################################
 def randomize(features, labels):
     newF, newL = shuffle(features, labels, random_state=0)
     return newF, newL
 
+##################################################################
+##################################################################
+### This function retrieves the file from the input on the web ###
+### browser, and saves it to a file in the 'user_input_files   ###
+### directory. It then calls predict() to get the prediction.  ###
+### RETURNS: html template to render, along with variables for ###
+###          the html file.                                    ###
+##################################################################
+##################################################################
 def upload():
+    #####################################
+    ### Retrieve file from user_input ###
+    #####################################
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
     target = os.path.join(APP_ROOT, '../user_input_files/')
     print(target)
@@ -156,6 +217,9 @@ def upload():
         exists = os.path.isfile(str(path)+ '/../user_input_files/' + filename)
         i=0
         nameNoExt = filename.replace('.txt','')
+        #########################################
+        ### If file already exists, rename it ###
+        #########################################
         while(exists):
             print("File exists")
             nameNoExt = filename.replace('.txt', '')
@@ -174,8 +238,9 @@ def upload():
         file.save(destination)
         print("No more files found")
     
-    
-
+    ##############################################################
+    ### Call predict to get prediction and other usefule info. ###
+    ##############################################################
     result, svm_conf, description, dict_words, dict_nums = predict(filename)
     var1 = svm_conf[0]
     var2 = svm_conf[1]
@@ -193,7 +258,7 @@ def upload():
 
     path = os.path.dirname(os.path.abspath(__file__))
 
-    portFile = open(path+'/../port.txt', 'r')
+    portFile = open(path+'/../savedFiles/port.txt', 'r')
     port = int(portFile.read())
     
 
@@ -202,21 +267,28 @@ def upload():
     total=total, description=description, scores=svm_scores,
     words=dict_words, nums=dict_nums, port=port)
 
+####################################################################
+####################################################################
+### This function uses the sklearn predict() function to predict ###
+### whether the file is spam or ham.                             ###
+### RETURNS: prediction and descriptions for html file           ###
+####################################################################
+####################################################################
 def predict(filename):
 
     
     path = os.path.dirname(os.path.abspath(__file__))
 
-    with open(str(path)+'/dictionary.txt', 'rb') as handle:
+    with open(str(path)+'/../savedFiles/dictionary.txt', 'rb') as handle:
       dictionary = pickle.loads(handle.read())
 
-    with open(str(path) + '/NB_Conf_Matr', 'rb') as handle:
+    with open(str(path) + '/../savedFiles/NB_Conf_Matr', 'rb') as handle:
       nb_conf = pickle.loads(handle.read())
-    with open(str(path) + '/SVM_Conf_Matr', 'rb') as handle:
+    with open(str(path) + '/../savedFiles/SVM_Conf_Matr', 'rb') as handle:
       svm_conf = pickle.loads(handle.read())
 
-    model1 = pickle.load(open(str(path)+"/Final_NB_Model", "rb"))
-    model2 = pickle.load(open(str(path)+"/Final_SVM_Model", "rb"))
+    model1 = pickle.load(open(str(path)+"/../savedFiles/Final_NB_Model", "rb"))
+    model2 = pickle.load(open(str(path)+"/../savedFiles/Final_SVM_Model", "rb"))
     
     
     pred_dir = str(path)+'/../user_input_files'
@@ -247,7 +319,6 @@ def predict(filename):
 
     for i in range(0, len(pred_matrix[0])):
         if(pred_matrix[0][i] > 0):
-          print("FELL IN")
           dict_words.append(dictionary[i][0])
           dict_nums.append(dictionary[i][1])
     print("WORDS: ", dict_words)
@@ -256,40 +327,18 @@ def predict(filename):
 
 
     return result, svm_conf, description, dict_words, dict_nums
-        
-'''def saveDictionary():
-  path = os.path.dirname(os.path.abspath(__file__))
-  train_dir = str(path)+'/dataset/ling-spam/train-mails/'
-  dictionary = make_Dictionary(train_dir)
-  print(dictionary)
 
-  with open(str(path)+'/dictionary.txt', 'wb') as handle:
-    pickle.dump(dictionary, handle)
-  return
-
-def saveConfMatr():
-  path = os.path.dirname(os.path.abspath(__file__))
-  with open(str(path)+'/dictionary.txt', 'rb') as handle:
-    dictionary = pickle.loads(handle.read())
-
-    model1 = pickle.load(open(str(path)+"/Final_NB_Model", "rb"))
-    model2 = pickle.load(open(str(path)+"/Final_SVC_Model", "rb"))
-    test_dir = str(path)+'/dataset/ling-spam/test-mails'
-    test_matrix = extract_features(test_dir, dictionary)
-    test_labels = np.zeros(260)
-    test_labels[130:260] = 1
-    result_test = model1.predict(test_matrix)
-    #result2 = model2.predict(test_matrix)
-    nb_conf = confusion_matrix(test_labels, result_test)
-
-    with open(str(path)+'/confusion_matrix.txt', 'wb') as handle:
-      pickle.dump(nb_conf, handle)'''
-
+################################################################
+################################################################
+### This function finds the accuracy, precision, recall, and ###
+### f1 score of the model.                                   ###
+################################################################
+################################################################
 def findScores():
   path = os.path.dirname(os.path.abspath(__file__))
-  with open(path+'/NB_Conf_Matr', 'rb') as handle:
+  with open(path+'/../savedFiles/NB_Conf_Matr', 'rb') as handle:
       nb_conf = pickle.loads(handle.read())
-  with open(path+'/SVM_Conf_Matr', 'rb') as handle:
+  with open(path+'/../savedFiles/SVM_Conf_Matr', 'rb') as handle:
     svm_conf = pickle.loads(handle.read())
 
   nb_tp = nb_conf[3]
@@ -321,17 +370,40 @@ def findScores():
 
   return nb_scores, svm_scores
 
-  #print("NB:")
-  #print("\tAcc: ", nb_acc)
-  #print("\tPrec: ", nb_prec)
-  #print("\tRec: ", nb_rec)
-  #print("\tF1: ", nb_f1)
+  
+################################### 
+###################################
+### Old functions for debugging ###
+###################################
+###################################
+'''def saveDictionary():
+  path = os.path.dirname(os.path.abspath(__file__))
+  train_dir = str(path)+'/dataset/ling-spam/train-mails/'
+  dictionary = make_Dictionary(train_dir)
+  print(dictionary)
 
-  #print("SVM:")
-  #print("\tAcc: ", svm_acc)
-  #print("\tPrec: ", svm_prec)
-  #print("\tRec: ", svm_rec)
-  #print("\tF1: ", svm_f1)
+  with open(str(path)+'/dictionary.txt', 'wb') as handle:
+    pickle.dump(dictionary, handle)
+  return
+
+def saveConfMatr():
+  path = os.path.dirname(os.path.abspath(__file__))
+  with open(str(path)+'/dictionary.txt', 'rb') as handle:
+    dictionary = pickle.loads(handle.read())
+
+    model1 = pickle.load(open(str(path)+"/Final_NB_Model", "rb"))
+    model2 = pickle.load(open(str(path)+"/Final_SVC_Model", "rb"))
+    test_dir = str(path)+'/dataset/ling-spam/test-mails'
+    test_matrix = extract_features(test_dir, dictionary)
+    test_labels = np.zeros(260)
+    test_labels[130:260] = 1
+    result_test = model1.predict(test_matrix)
+    #result2 = model2.predict(test_matrix)
+    nb_conf = confusion_matrix(test_labels, result_test)
+
+    with open(str(path)+'/confusion_matrix.txt', 'wb') as handle:
+      pickle.dump(nb_conf, handle)'''
+
   
 
 

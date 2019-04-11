@@ -13,7 +13,7 @@ app = connexion.App(__name__, specification_dir="./")
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def savePort():
-   portFile = open('port.txt', 'w')
+   portFile = open('./savedFiles/port.txt', 'w')
    portFile.write(str(myPort))
    portFile.close()
 
@@ -29,6 +29,11 @@ app.add_api("master.yml")
 @app.route("/")
 def home():
    return render_template("home.html")
+
+def method_not_allowed(e):
+   return render_template("error.html", port=myPort)
+
+app.add_error_handler(405, method_not_allowed)
 
 
 
