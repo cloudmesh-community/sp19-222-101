@@ -1,4 +1,4 @@
-###Welcome to Spamalot!
+#Welcome to Spamalot!
 
 ##Introduction
 The goal of this project is the creation of a service that can classify

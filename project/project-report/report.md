@@ -89,16 +89,20 @@ to assess the quality of each model.
 ## Model Results
 
 The following image shows the confusion matrix for the Naive Bayes algorithm:
+![NB Confusion Matrix](images/NB_Confusion_Matrix.png)
 
 The following image shows the confusion matrix for the SVM algorithm:
+![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png)
 
 Due to the improved overall F1 score of the SVM model, we decided to use the SVM
 algorithm for our spam email classifier implementation.
 
 ## Implementation
+
 The general workflow is as follows:
-![rad flowchart](images/rad_workflow.png)
+![Classification Flowchart](images/classification_workflow.png)
 :new_moon_with_face::full_moon_with_face::sun_with_face:
+
 
 ## Sources
 https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
