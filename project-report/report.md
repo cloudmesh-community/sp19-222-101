@@ -108,8 +108,18 @@ reason, we decided to use the SVM model for our classification method.
 
 The general workflow is as follows:
 ![Classification Flowchart](images/classification_workflow.png)
-:new_moon_with_face::full_moon_with_face::sun_with_face:
 
+### The server
+
+We used Swagger OpenAPI to create our server. This tool lets us conveniently
+define our server's endpoints and REST API operations in a concise YAML
+file. Our server has one endpoint called 'upload', which acts as a REST POST
+operation. 
+
+To get the server running, download and run the provided Dockerfile. This will
+unpack and generate the necessary requirements. Running the server in a
+container such as Docker is beneficial because it will not interfere with the
+host system.
 
 ## Sources
 https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
