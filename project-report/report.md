@@ -106,10 +106,38 @@ reason, we decided to use the SVM model for our classification method.
 
 ## Implementation
 
-The general workflow is as follows:
-![Classification Flowchart](images/classification_workflow.png)
-:new_moon_with_face::full_moon_with_face::sun_with_face:
+### The Server
 
+We used Swagger OpenAPI to create our server. This package lets us conveniently
+define our server's endpoints and REST API operations in a concise YAML file. In
+addition to Swagger OpenAPI, we also greatly utilized the Flask package. In our
+YAML file, our server has one endpoint called 'upload', which acts as a REST
+POST operation. The 'upload' function corresponding to this endpoint is defined
+in a file called gatherData.py. It uses Flask.request() to read in a user's text
+file. Once the file has been accepted, the text file is processed and the
+classification occurs. The results of the classification are then returned and
+displayed to the user as an HTML page using Flask.render_template().
+
+It should be noted that the upload endpoint cannot be reached directly by URL;
+it can only be accessed by pressing a JavaScript button on the home page of the
+server, which then calls the Flask.request() function and starts the
+classification process. If a user attempts to access the upload endpoint via URL
+instead of clicking the button, they will be taken to an error page. Once a user
+successfully sees the classification results, they are given the option to
+return to the home page via another JavaScript button, where they can upload
+another email for classification.
+
+We created a Dockerfile that contains all the necessary files needed to host the
+server. Running the server in a container such as Docker is beneficial because
+installation will not interfere with the host system, and the container is easy
+to remove once installed.
+
+The following shows the basic workflow of our server:
+![Classification Flowchart](images/classification_workflow.png)
+
+### The Upload Function and Classification
+
+The upload function 
 
 ## Sources
 https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
