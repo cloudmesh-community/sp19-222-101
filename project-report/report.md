@@ -1,14 +1,15 @@
-# Welcome to Spamalot!
+# Spam Analysis with Spamalot
 
 ## Abstract
+
 
 ## Introduction
 
 The goal is the creation of a service that can classify spam emails. By the term
 "spam email", we refer to emails that are sent with malicious intent against the
-recipient. Emails without malicious intent will be referred to as a "ham
-email". We are exploring the possibility of predicting malicious intent in a
-given email using a machine learning algorithm.
+recipient. Emails without malicious intent will be referred to as a "ham email".
+We are exploring the possibility of predicting malicious intent in a given email
+using a machine learning algorithm.
 
 Classifying malicious emails can prevent harmful situations for users who are
 unaware of the dangers of phishing. Links in these emails can lead to dangerous
@@ -140,4 +141,5 @@ The following shows the basic workflow of our server:
 The upload function 
 
 ## Sources
-https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
+
+* <https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/>
