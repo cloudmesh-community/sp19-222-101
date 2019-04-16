@@ -28,3 +28,6 @@
 * docker build -t name .
 * docker run -p 5000:5000 name 
 * To view containers: docker container ls -all
+
+# 4/16/19 Notes
+## docker run -i -t -p 8080:8080 NAME /bin/bash
