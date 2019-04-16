@@ -7,6 +7,6 @@ owner:
   semester: sp19
 project:
   - title: "Spam Analysis with Spamalot"
-    url: "https://raw.githubusercontent.com/cloudmesh-community/sp19-222-101/master/project-report/report.md"
+    url: "https://github.com/cloudmesh-community/sp19-222-101/blob/master/project-report/report.md"
     code: "https://github.com/cloudmesh-community/sp19-222-101/blob/master/project-report/report.md"
     keywords: "Spam"
