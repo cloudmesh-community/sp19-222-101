@@ -137,7 +137,7 @@ The following shows the basic workflow of our server:
 
 ### The Upload Function and Classification
 
-The upload function 
+
 
 ## Sources
 https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/
