@@ -1,5 +1,6 @@
 # Spam Analysis with Spamalot
 
+:o: citations not done correctly, see notation.md
 
 | Fisrtname Lastname
 | emai
