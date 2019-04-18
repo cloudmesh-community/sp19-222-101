@@ -1,5 +1,22 @@
 # Spam Analysis with Spamalot
 
+:o: citations not done correctly, see notation.md
+
+| Fisrtname Lastname
+| emai
+| Indiana University Bloomington
+| hid: sp19-222-101
+| github: [:cloud:](https://github.com/cloudmesh-community/sp19-222-101/blob/master/project-report/report.md)
+| code: [:cloud:](https://github.com/cloudmesh-community/sp19-222-101/tree/master/project-code)
+
+---
+
+Keywords: Spam
+
+---
+
+ 
+
 ## Abstract
 
 
