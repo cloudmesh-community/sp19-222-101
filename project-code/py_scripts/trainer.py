@@ -1,6 +1,4 @@
-from flask import Flask, render_template, request
 import numpy as np
-import connexion
 from pathlib import Path
 import os
 from collections import Counter
@@ -9,13 +7,8 @@ from sklearn.svm import SVC, NuSVC, LinearSVC
 from sklearn.metrics import confusion_matrix
 from sklearn.utils import shuffle
 import pickle
-import sys
-sys.path.insert(0, os.path.abspath("."))
-import py_scripts
-import py_scripts.trainer as trainer
-# NO LONGER USE NAIVE-BAYES CODE #
 
-'''######################################################################
+######################################################################
 ######################################################################
 ### This function makes a dictionary of the 5000 most common words ###
 ### in our training files.                                         ###
@@ -190,79 +183,9 @@ def train():
 ########################################################
 def randomize(features, labels):
     newF, newL = shuffle(features, labels, random_state=0)
-    return newF, newL'''
+    return newF, newL
 
-##################################################################
-##################################################################
-### This function retrieves the file from the input on the web ###
-### browser, and saves it to a file in the 'user_input_files   ###
-### directory. It then calls predict() to get the prediction.  ###
-### RETURNS: html template to render, along with variables for ###
-###          the html file.                                    ###
-##################################################################
-##################################################################
-def upload():
-    #####################################
-    ### Retrieve file from user_input ###
-    #####################################
-    
-    APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    target = os.path.join(APP_ROOT, '../user_input_files/')
-    print(target)
-
-    if not os.path.isdir(target):
-        os.mkdir(target)
-    filename = ""
-    for file in request.files.getlist("file"):
-        
-        filename = file.filename
-        #################################
-        ### Remove any existing files ###
-        #################################
-        for my_file in os.listdir(target):
-            file_path = os.path.join(target, my_file)
-            try:
-                if os.path.isfile(file_path):
-                    os.unlink(file_path)
-            except Exception as e:
-                print(e)
-       
-        file.save(os.path.join(target, filename))
-
-    
-    ##############################################################
-    ### Call predict to get prediction and other usefule info. ###
-    ##############################################################
-    result, svm_conf, description, dict_words, dict_nums = trainer.predict(filename)
-    var1 = svm_conf[0]
-    var2 = svm_conf[1]
-    var3 = svm_conf[2]
-    var4 = svm_conf[3]
-    total = var1+var2+var3+var4
-    conf_matr_values = [var1, var2, var3, var4]
-
-    nb_scores, svm_scores = findScores()
-
-    for i in range(0,4):
-      nb_scores[i] = round(nb_scores[i], 2)
-    for i in range(0,4):
-      svm_scores[i] = round(svm_scores[i], 2)
-
-    path = os.path.dirname(os.path.abspath(__file__))
-
-    portFile = open(path+'/../savedFiles/port.txt', 'r')
-    port = int(portFile.read())
-
-    # Remove user input file
-    os.remove(str(path)+'/../user_input_files/'+filename)
-    
-
-    return render_template("showModel.html", prediction=result, 
-    filename=filename, conf_matr_values=conf_matr_values, 
-    total=total, description=description, scores=svm_scores,
-    words=dict_words, nums=dict_nums, port=port)
-
-'''####################################################################
+####################################################################
 ####################################################################
 ### This function uses the sklearn predict() function to predict ###
 ### whether the file is spam or ham.                             ###
@@ -304,7 +227,7 @@ def predict(filename):
       " contain enough words used in spam emails to be classified" + \
       " as spam."
 
-    os.remove(str(path)+'/../user_input_files/'+filename)
+    
 
     dict_words = []
     dict_nums = []
@@ -321,86 +244,7 @@ def predict(filename):
     
 
 
-    return result, svm_conf, description, dict_words, dict_nums'''
+    return result, svm_conf, description, dict_words, dict_nums
 
-################################################################
-################################################################
-### This function finds the accuracy, precision, recall, and ###
-### f1 score of the model.                                   ###
-################################################################
-################################################################
-def findScores():
-  path = os.path.dirname(os.path.abspath(__file__))
-  with open(path+'/../savedFiles/NB_Conf_Matr', 'rb') as handle:
-      nb_conf = pickle.loads(handle.read())
-  with open(path+'/../savedFiles/SVM_Conf_Matr', 'rb') as handle:
-    svm_conf = pickle.loads(handle.read())
-
-  nb_tp = nb_conf[3]
-  nb_tn = nb_conf[0]
-  nb_fp = nb_conf[1]
-  nb_fn = nb_conf[2]
-  nb_tot = nb_tp+nb_tn+nb_fp+nb_fn
-
-  svm_tp = svm_conf[3]
-  svm_tn = svm_conf[0]
-  svm_fp = svm_conf[1]
-  svm_fn = svm_conf[2]
-  svm_tot = svm_tp+svm_tn+svm_fp+svm_fn
-
-  nb_acc = (nb_tp+nb_tn)/nb_tot
-  svm_acc = (svm_tp+svm_tn)/svm_tot
-
-  nb_prec = nb_tp/(nb_tp+nb_fp)
-  svm_prec = svm_tp/(svm_tp+svm_fp)
-
-  nb_rec = nb_tp/(nb_tp+nb_fn)
-  svm_rec = svm_tp/(svm_tp+svm_fn)
-
-  nb_f1 = 2*((nb_prec*nb_rec)/(nb_prec+nb_rec))
-  svm_f1 = 2*((svm_prec*svm_rec)/(svm_prec+svm_rec))
-
-  nb_scores = [nb_acc, nb_prec, nb_rec, nb_f1]
-  svm_scores = [svm_acc, svm_prec, svm_rec, svm_f1]
-
-  return nb_scores, svm_scores
-
-  
-################################### 
-###################################
-### Old functions for debugging ###
-###################################
-###################################
-'''def saveDictionary():
-  path = os.path.dirname(os.path.abspath(__file__))
-  train_dir = str(path)+'/dataset/ling-spam/train-mails/'
-  dictionary = make_Dictionary(train_dir)
-  print(dictionary)
-
-  with open(str(path)+'/dictionary.txt', 'wb') as handle:
-    pickle.dump(dictionary, handle)
-  return
-
-def saveConfMatr():
-  path = os.path.dirname(os.path.abspath(__file__))
-  with open(str(path)+'/dictionary.txt', 'rb') as handle:
-    dictionary = pickle.loads(handle.read())
-
-    model1 = pickle.load(open(str(path)+"/Final_NB_Model", "rb"))
-    model2 = pickle.load(open(str(path)+"/Final_SVC_Model", "rb"))
-    test_dir = str(path)+'/dataset/ling-spam/test-mails'
-    test_matrix = extract_features(test_dir, dictionary)
-    test_labels = np.zeros(260)
-    test_labels[130:260] = 1
-    result_test = model1.predict(test_matrix)
-    #result2 = model2.predict(test_matrix)
-    nb_conf = confusion_matrix(test_labels, result_test)
-
-    with open(str(path)+'/confusion_matrix.txt', 'wb') as handle:
-      pickle.dump(nb_conf, handle)'''
-
-  
-
-def my_test():
-  print(trainer.test())
-  return
+def test():
+  return "TESTING SUCCEED"
