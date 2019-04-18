@@ -245,6 +245,3 @@ def predict(filename):
 
 
     return result, svm_conf, description, dict_words, dict_nums
-
-def test():
-  return "TESTING SUCCEED"
