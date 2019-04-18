@@ -1,7 +1,5 @@
 # Spam Analysis with Spamalot
 
-:o: citations not done correctly, see notation.md
-
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
 | Indiana University Bloomington
@@ -134,7 +132,9 @@ POST operation. The 'upload' function corresponding to this endpoint is defined
 in a file called gatherData.py. It uses Flask.request() to read in a user's text
 file. Once the file has been accepted, the text file is processed and the
 classification occurs. The results of the classification are then returned and
-displayed to the user as an HTML page using Flask.render_template().
+displayed to the user as an HTML page using Flask.render_template(). The upload
+function and the classification process is explained in more detail in the next
+section.
 
 It should be noted that the upload endpoint cannot be reached directly by URL;
 it can only be accessed by pressing a JavaScript button on the home page of the
@@ -155,8 +155,34 @@ The following shows the basic workflow of our server:
 
 ### The Upload Function and Classification
 
+The majority of the computation of our service occurs from the function called
+upload. This function takes a file from the user as an input and classifies it
+as either spam or ham. The file is retrieved by utilizing the request function
+in the Flask package. This file must have a .txt extension and must contain the
+body of the email to be classified.
 
+Once the file is uploaded, a function called extract_features is applied to the
+file. The extract_features function converts the email text into a word
+frequency vector. This feature vector is then used as an input for the SVM model
+to classify the email as spam or ham.
+
+Our server contains a previously-trained SVM model file, so it will not need to
+retrain the model each time a user uploads a new file. Initially, we used
+sklearn to train an SVM model on a large number of emails, creating a large
+database of word frequency vectors and their corresponding
+classifications. Using the pickle package, we saved this model as a file on the
+server. Upon calling the upload function and successfully creating a feature
+vector for the user's uploaded email, the server uses pickle to load the saved
+model and predicts whether the user's email is ham or spam.
+
+The final piece of information that the upload function calculates is a
+performance statistics for the SVM model, including accuracy, precision,
+sensitivity, recall, and F1 score. This gives the user insight on the
+performance of the SVM model. Once the server has made a prediction and has
+performance statistics, it uses the render_template function from the Flask
+package to display an HTML file with the returned variables. This is what the
+user finally sees after uploading their email file.
 
 ## Sources
 
-* <https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/>
+(will remove) * <https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/>
