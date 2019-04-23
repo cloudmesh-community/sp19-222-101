@@ -8,7 +8,7 @@ docker-all: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build -t sp19-222-101/spam
+	docker build -t sp19-222-101/spam:latest .
 	@echo "imgage DONE"
 
 docker-start:

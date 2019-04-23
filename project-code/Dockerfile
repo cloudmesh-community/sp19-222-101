@@ -30,6 +30,4 @@ WORKDIR /sp19-222-101
 
 EXPOSE 8080
 
-RUN make start
 
-CMD ["make", "start"]
