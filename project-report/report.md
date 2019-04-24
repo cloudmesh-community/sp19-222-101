@@ -1,5 +1,5 @@
 :warning: This is in review 
-
+:wave: check how to seed a table and figure
 
 # Spam Analysis with Spamalot
 
@@ -108,7 +108,10 @@ to assess the quality of each model.
 ## Model Results
 
 The following image shows the confusion matrix for the Naive Bayes algorithm:
-![NB Confusion Matrix](images/NB_Confusion_Matrix.png)
+The confusion matrix generated from the Naive Bayes algoritgm is represensted
+in @fig:nb-conf-mat. 
+
+![NB Confusion Matrix](images/NB_Confusion_Matrix.png){#fig:nb-conf-mat}
 
 The following image shows the confusion matrix for the SVM algorithm:
 ![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png)
