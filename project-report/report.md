@@ -41,7 +41,7 @@ include phishing and malware.
 
 Phishing describes a process in which an attacker impersonates a trustworthy
 third party in an attempt to obtain sensitive information
-[jagatic2007social]. In a recent phishing attack, a link was sent to Snapchat
+[@jagatic2007social]. In a recent phishing attack, a link was sent to Snapchat
 users telling them to enable two-step authentication. This link collected the
 login information of more than 50,000 Snapchat users. Users were under the
 impression that they were making their private information more secure, but they
@@ -55,7 +55,7 @@ files and network files, effectively preventing the user from accessing their
 own files. Then, the ransomware will ask the user to pay in exchange to decrypt
 their file. Even if the user pays to decrypt their data, the attacker often
 still has control over the user's data and may lead to potential identity theft
-[bridges2008changing].
+[@bridges2008changing].
 
 :wave::heavy_check_mark: Give an example of malware and what can be done with
 phishing emails.
@@ -99,10 +99,10 @@ trends in natural language situations.
 :wave: how do you test for independence ? What is natural language?
 
 :warning: what is a distribution of dependecies? State ..the naive assumption
-implies that each feature is independent...the end classification is probably 
-sensative to each feature distribution which may or may not be similiar to the 
-other feature. Perhaps a better discussion here, you should leave the reader 
-satisfied not with more questions. 
+implies that each feature is independent...the end classification is probably
+sensative to each feature distribution which may or may not be similiar to the
+other feature. Perhaps a better discussion here, you should leave the reader
+satisfied not with more questions.
 
 SVM is also used to work with natural language classification
 [@khorsi2007overview]. SVM models construct hyper-planes in the feature space of
@@ -142,22 +142,28 @@ messages from a member of Enron corpus with random ham-spam ratio
 [@metsis2006spam]. These emails are all labeled as ham or spam.
 
 The raw messages of each email generally contain too much information to be
-considered useful to train the classifier. We removed punctuation marks and
-special characters.
+considered useful to train the classifier. In particular, raw email message text
+has many characters that contribute little to the classification of the
+email. To counteract this, we removed all non-alphabetical characters from the
+from the dataset. Also, we removed any words that were only one character long,
+such as 'a' and 'I'. Finally, we removed all instances of the word 'the', which
+turned out to be one of the most common words in all the training emails.
 
 Additionally, previous research has shown the usefulness of lemmatization in
 spam filtering [@androutsopoulos2000evaluation], which is the process of
 grouping together variations of the same root word. For instance, a lemmatizer
 would group all instances of the words "include", "includes", and "included" in
-the same category. We ran a lemmatizer on the dataset as well.
+the same category. The dataset that we used to train our algorithm was already
+lemmatized, so we did not need to go through this process ourselves.
 
-The filtered emails were then separated into vectors of word frequencies. These
-were treated as the features for the machine learning model, with "spam" or
-"ham" being the labels.
-
-As standard general practice, we randomly chose 80% of these vectors to train
-both the SVM and Naive Bayes models, and used the remaining 20% of these vectors
-to assess the quality of each model.
+Once the email texts were filtered, we then created vectors of word frequencies
+from each email. These are treated as the features for the machine learning
+model. As previously mentioned, our dataset was already labeled as "spam" or
+"ham", making it possible to train the SVM and Naive Bayes supervised learning
+models. We shuffled the list of word frequency vectors from the dataset and
+randomly chose 80% of these vectors to train both the SVM and Naive Bayes
+models. We used the remaining 20% of these vectors to assess the quality of each
+model.
 
 ## Model Results
 
