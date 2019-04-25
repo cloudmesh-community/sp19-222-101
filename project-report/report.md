@@ -1,5 +1,10 @@
 :warning: This is in review 
 
+:warning: I want a more in-depth discussion of the algorithm you discuss margins,
+distrubutions, hyper-planes but don't really tell me what or how. In this case we 
+can get into the weeds of the path, i don't need a derivsation but equations can 
+be helpful.
+
 :wave: check how to seed a table and figure
 
 :wave: math in text can be shown with ^ and _ for super and power
