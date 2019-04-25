@@ -42,15 +42,17 @@ It is also important to minimize the number of false positives - i.e. minimize
 the number of ham emails that are erroneously labeled as spam. This practice
 would be quite unfriendly to the user.
 
-:wave: the above paragraph is jargony this is called miss classification
-you need to discuss why miss classification is bad (i know it is obvious). 
+:wave: the above sentence is jargony this is called miss classification
+you need to discuss why miss classification is bad (i know it is obvious).
+
+:warning: A paragraph needs at least 3-5 sentences keep the intro one paragraph
+or make full paragraphs. 
 
 ## The Algorithm
 
-We considered two main algorithms for our implementation of spam classification:
-the Naive Bayes and Support Vector Machine (SVM) algorithms.
-
-Classically, Naive Bayes classifiers are typically used for spam filtering and
+We considered the Naive Bayes and Support Vector Machine (SVM) algorithms
+for our implementation of spam classification. Naive Bayes
+classifiers are typically used for spam filtering and
 document classification problems [@khorsi2007overview]. The Naive Bayes
 algorithm relies on Bayes' probability theorem, which expresses a relationship
 between the probability of the occurence of an event E given the occurence of
