@@ -13,7 +13,7 @@ docker-build:
 
 docker-start:
 	@echo "starting the service in container..."
-	docker run -i -t -p 8080:8080 sp19-222-101/spam /bin/bash
+	docker run -t -p 8080:8080 sp19-222-101/spam /bin/bash
 
 service:
 	@echo "creating the service..."
