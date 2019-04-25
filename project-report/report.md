@@ -1,6 +1,7 @@
 :warning: This is in review 
 
 :wave: check how to seed a table and figure
+
 :wave: math in text can be shown with ^ and _ for super and power
 scripts by putting in between money signs $ $. 
 
