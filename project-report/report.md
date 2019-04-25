@@ -1,9 +1,9 @@
 :warning: This is in review 
 
 :warning: I want a more in-depth discussion of the algorithm you discuss margins,
-distrubutions, hyper-planes but don't really tell me what or how. In this case we 
-can get into the weeds of the path, i don't need a derivsation but equations can 
-be helpful.
+distrubutions, hyper-planes but don't really tell me what or how these things are 
+calculated. In this case we can get into the weeds of the path, I don't need a 
+derivation but equations can be helpful.
 
 :wave: check how to seed a table and figure
 
@@ -99,13 +99,18 @@ dataset.
 :wave: how would you describe a hyperplane to your aunt or uncle? include that 
 description here. 
 
-Naive Bayes and SVM are supervised learning algorithms. :wave: 
-Both algorithms have weaknesses. The Naive Bayes algorithm works
-best when dependencies distribute evenly in classes [@zhang2004optimality], but
-if this is not the case, Naive Bayes will not be optimal. SVM is much slower
-than Naive Bayes, but typically tend to be more statistically robust
+Naive Bayes and SVM are supervised learning algorithms with strengths and weaknesses.
+The Naive Bayes algorithm gives optimalc solutions when dependencies distribute evenly [@zhang2004optimality]. 
+SVM is much slower than Naive Bayes, but typically tend to be more statistically robust
 [@sculley2007relaxed]. We experimented with both algorithms and chose which one
 to use based on their performance and respective statistics.
+
+:wave: what is supervised learning
+
+:wave: how do we measure dependecies and determine if they dist evenly (NB alg)
+
+
+
 
 ## The Dataset
 
