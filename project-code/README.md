@@ -13,6 +13,9 @@ This is the page that shows a prediction for a previously uploaded file.
 ## How to Run:
 1. Make sure you have Docker installed
 2. Download Dockerfile and Makefile
-3. open a new terminal window and type:
-    make docker-all
+3. open a new terminal window and type:  
+```console
+foo@bar:/$ make docker-all
+foo
+```
 4. Profit
