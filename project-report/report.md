@@ -140,14 +140,14 @@ to assess the quality of each model.
 
 ## Model Results
 
-The following image shows the confusion matrix for the Naive Bayes algorithm:
-The confusion matrix generated from the Naive Bayes algoritgm is represensted
+The confusion matrix generated from the Naive Bayes algorithm is represensted
 in @fig:nb-conf-mat. 
 
 ![NB Confusion Matrix](images/NB_Confusion_Matrix.png){#fig:nb-conf-mat}
 
-The following image shows the confusion matrix for the SVM algorithm:
-![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png)
+The confusion matrix generated from the SVM algorithm is represented in 
+@fig:svm-conf-mat.
+![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png){#fig:svm-conf-mat}
 
 Although the Naive Bayes method correctly identified more ham as ham, it also
 mislabeled more spam as ham. For the user, this would translate to more
@@ -189,7 +189,8 @@ server. Running the server in a container such as Docker is beneficial because
 installation will not interfere with the host system, and the container is easy
 to remove once installed.
 
-The following shows the basic workflow of our server:
+The following diagram @fig:classification-workflow shows the basic workflow of
+our server:
 ![Classification Flowchart](images/classification_workflow.png)
 
 ### The Upload Function and Classification
