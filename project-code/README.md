@@ -20,3 +20,11 @@ foo@bar:/sp19-222-101/project-code# make docker-all
 ```
 5. Open a web browser and go to http://localhost:8080
 6. Profit
+
+## How to stop service:
+1. Open a new terminal window
+2. cd into the directory where Dockerfile and Makefile are stored
+3. type:
+```console
+foo@bar:~/$ make docker-clean
+```

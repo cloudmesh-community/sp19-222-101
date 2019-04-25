@@ -8,3 +8,4 @@ line = lines[1].split(' ')
 name = line[len(line)-1]
 command = "docker rm " + name
 os.system(command)
+print("Removed container ", name)
