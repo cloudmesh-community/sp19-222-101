@@ -56,7 +56,7 @@ classifiers are typically used for spam filtering and
 document classification problems [@khorsi2007overview]. The Naive Bayes
 algorithm relies on Bayes' probability theorem, which expresses a relationship
 between the probability of the occurence of an event E given the occurence of
-other events, x1 through xn [@zhang2004optimality]. In terms of classification,
+other events, $x_1$ through xn [@zhang2004optimality]. In terms of classification,
 event E would be the classication of a data point, and x1 through xn are the
 features of that data point. The underlying assumption of the Naive Bayes
 classifier is that each of the features are independent of the value of the
