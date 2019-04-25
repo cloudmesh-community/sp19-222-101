@@ -16,6 +16,5 @@ This is the page that shows a prediction for a previously uploaded file.
 3. open a new terminal window and type:  
 ```console
 foo@bar:/$ make docker-all
-foo
 ```
 4. Profit
