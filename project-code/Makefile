@@ -35,6 +35,9 @@ docker-remove:
 	@echo "removing the image"
 	docker rmi -f sp19-222-101/spam
 	@echo "image removed"
+	docker ps -a
+	docker ps -a > dockerContainers.txt
+	python remove_container.py
 
 docker-clean: docker-stop docker-remove
 	@echo "DONE"
