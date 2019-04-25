@@ -15,6 +15,6 @@ This is the page that shows a prediction for a previously uploaded file.
 2. Download Dockerfile and Makefile
 3. open a new terminal window and type:  
 ```console
-foo@bar:/$ make docker-all
+foo@bar:/sp19-222-101/project-code# make docker-all
 ```
 4. Profit
