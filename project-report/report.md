@@ -1,14 +1,14 @@
 :warning: This is in review 
 
-:warning: I want a more in-depth discussion of the algorithm you discuss margins,
-distrubutions, hyper-planes but don't really tell me what or how these things are 
-calculated. In this case we can get into the weeds of the path, I don't need a 
-derivation but equations can be helpful.
+:warning: I want a more in-depth discussion of the algorithm you discuss
+margins, distrubutions, hyper-planes but don't really tell me what or how these
+things are calculated. In this case we can get into the weeds of the path, I
+don't need a derivation but equations can be helpful.
 
-:wave: :heavy_check_mark: check how to seed a table and figure
+:wave::question: check how to seed a table and figure (I think we did this correctly?)
 
-:wave: math in text can be shown with ^ and _ for super and power
-scripts by putting in between money signs $ $. 
+:wave: math in text can be shown with ^ and _ for super and power scripts by
+putting in between money signs $ $.
 
 # Spam Analysis with Spamalot
 
@@ -57,7 +57,8 @@ their file. Even if the user pays to decrypt their data, the attacker often
 still has control over the user's data and may lead to potential identity theft
 [bridges2008changing].
 
-:wave::heavy_check_mark: Give an example of malware and what can be done with phishing emails. 
+:wave::heavy_check_mark: Give an example of malware and what can be done with
+phishing emails.
 
 Classifying emails can prevent users from being affected by phishing scams and
 malware. We will use a machine learning algorithm to classify malicious
@@ -69,11 +70,12 @@ misclassification is important emails being flagged as malicious and dangerous
 emails being flagged as benign. This would make it even more confusing to the
 user to determine the legitimacy of their received emails.
 
-:wave::heavy_check_mark: the above sentence is jargony this is called miss classification
-you need to discuss why miss classification is bad (i know it is obvious).
+:wave::heavy_check_mark: the above sentence is jargony this is called miss
+classification you need to discuss why miss classification is bad (i know it is
+obvious).
 
-:warning::heavy_check_mark: A paragraph needs at least 3-5 sentences keep the intro one paragraph
-or make full paragraphs. 
+:warning::heavy_check_mark: A paragraph needs at least 3-5 sentences keep the
+intro one paragraph or make full paragraphs.
 
 ## The Algorithm
 
@@ -118,17 +120,17 @@ dataset.
 :wave: how would you describe a hyperplane to your aunt or uncle? include that 
 description here. 
 
-Naive Bayes and SVM are supervised learning algorithms with strengths and weaknesses.
-The Naive Bayes algorithm gives optimalc solutions when dependencies distribute evenly [@zhang2004optimality]. 
-SVM is much slower than Naive Bayes, but typically tend to be more statistically robust
+Naive Bayes and SVM are both supervised learning algorithms, which means that
+they are trained with data that is already labeled. Both algorithms have
+strengths and weaknesses. The Naive Bayes algorithm gives optimal solutions when
+dependencies distribute evenly [@zhang2004optimality]. SVM is much slower than
+Naive Bayes, but typically tend to be more statistically robust
 [@sculley2007relaxed]. We experimented with both algorithms and chose which one
 to use based on their performance and respective statistics.
 
-:wave: what is supervised learning
+:wave::heavy_check_mark: what is supervised learning
 
 :wave: how do we measure dependecies and determine if they dist evenly (NB alg)
-
-
 
 
 ## The Dataset
