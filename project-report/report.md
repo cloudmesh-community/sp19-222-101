@@ -36,9 +36,8 @@ Summarize the question, purpose of the project.
 The goal is the creation of a service that can classify spam emails. By the term
 "spam email", we refer to emails that are sent with malicious intent against the
 recipient. Emails without malicious intent will be referred to as a "ham email".
-We are exploring the possibility of predicting malicious intent in a given email
-using a machine learning algorithm. Classifying malicious emails can prevent
-users from being affected by phishing scams and malware.
+Common forms of malicious intent that steal or restrict a user's personal data
+include phishing and malware.
 
 Phishing describes a process in which an attacker impersonates a trustworthy
 third party in an attempt to obtain sensitive information
@@ -60,14 +59,20 @@ still has control over the user's data and may lead to potential identity theft
 
 :wave::heavy_check_mark: Give an example of malware and what can be done with phishing emails. 
 
-It is also important to minimize the number of false positives - i.e. minimize
-the number of ham emails that are erroneously labeled as spam. This practice
-would be quite unfriendly to the user.
+Classifying emails can prevent users from being affected by phishing scams and
+malware. We will use a machine learning algorithm to classify malicious
+emails. An important consideration for the user is to minimize misclassification
+of spam emails. In other words, we need to be careful to minimize the number of
+spam emails that are erroneously labeled as ham, and minimize the number of ham
+emails that are erroneously labeled as spam. The consequence of
+misclassification is important emails being flagged as malicious and dangerous
+emails being flagged as benign. This would make it even more confusing to the
+user to determine the legitimacy of their received emails.
 
-:wave: the above sentence is jargony this is called miss classification
+:wave::heavy_check_mark: the above sentence is jargony this is called miss classification
 you need to discuss why miss classification is bad (i know it is obvious).
 
-:warning: A paragraph needs at least 3-5 sentences keep the intro one paragraph
+:warning::heavy_check_mark: A paragraph needs at least 3-5 sentences keep the intro one paragraph
 or make full paragraphs. 
 
 ## The Algorithm
