@@ -71,6 +71,7 @@ features [@zhang2004optimality], which makes this method successful when
 classifying trends in natural language situations.
 
 :wave: how do you test for independence ? What is natural language?
+
 :warning: what is a distribution of dependecies? State ..the naive assumption
 implies that each feature is independent...the end classification is probably 
 sensative to each feature distribution which may or may not be similiar to the 
@@ -90,8 +91,11 @@ vector with a large number of features [@khorsi2007overview]. As a result, SVM
 is an appropriate model to classify spam emails due to the high dimensional
 dataset.
 
-Both the machine learning algorithms above are supervised learning
-algorithms. Both algorithms have weaknesses. The Naive Bayes algorithm works
+:wave: how would you describe a hyperplane to your aunt or uncle? include that 
+description here. 
+
+Naive Bayes and SVM are supervised learning algorithms. :wave: 
+Both algorithms have weaknesses. The Naive Bayes algorithm works
 best when dependencies distribute evenly in classes [@zhang2004optimality], but
 if this is not the case, Naive Bayes will not be optimal. SVM is much slower
 than Naive Bayes, but typically tend to be more statistically robust
