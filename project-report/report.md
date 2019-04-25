@@ -1,6 +1,8 @@
 :warning: This is in review 
 
 :wave: check how to seed a table and figure
+:wave: math in text can be shown with ^ and _ for super and power
+scripts by putting in between money signs $ $. 
 
 # Spam Analysis with Spamalot
 
@@ -67,7 +69,12 @@ the end classification is sensitive to the distribution of dependencies between 
 features [@zhang2004optimality], which makes this method successful when
 classifying trends in natural language situations.
 
-:wave: how do you test for independence ?
+:wave: how do you test for independence ? What is natural language?
+:warning: what is a distribution of dependecies? State ..the naive assumption
+implies that each feature is independent...the end classification is probably 
+sensative to each feature distribution which may or may not be similiar to the 
+other feature. Perhaps a better discussion here, you should leave the reader 
+satisfied not with more questions. 
 
 SVM is also used to work with natural language classification
 [@khorsi2007overview]. SVM models construct hyper-planes in the feature space of
