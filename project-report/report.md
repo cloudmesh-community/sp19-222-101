@@ -5,7 +5,7 @@ distrubutions, hyper-planes but don't really tell me what or how these things ar
 calculated. In this case we can get into the weeds of the path, I don't need a 
 derivation but equations can be helpful.
 
-:wave: check how to seed a table and figure
+:wave: :heavy_check_mark: check how to seed a table and figure
 
 :wave: math in text can be shown with ^ and _ for super and power
 scripts by putting in between money signs $ $. 
@@ -192,6 +192,7 @@ to remove once installed.
 The following diagram @fig:classification-workflow shows the basic workflow of
 our server:
 ![Classification Flowchart](images/classification_workflow.png)
+{#fig:classification-workflow}
 
 ### The Upload Function and Classification
 
