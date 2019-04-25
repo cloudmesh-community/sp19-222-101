@@ -83,8 +83,8 @@ We considered the Naive Bayes and Support Vector Machine (SVM) algorithms for
 our implementation of spam classification. Naive Bayes classifiers are typically
 used for spam filtering and document classification problems
 [@khorsi2007overview]. The Naive Bayes algorithm relies on Bayes' probability
-theorem, which expresses a relationship between the probability of the occurence
-of an event $c$ given the occurence of other events, $x_1$ through $x_n$
+theorem, which expresses a relationship between the probability of the occurrence
+of an event $c$ given the occurrence of other events, $x_1$ through $x_n$
 [@zhang2004optimality]. Representing $E$ as $(x_1, x_2, ... x_n)$, the
 probability of an event $c$ given $E$ is:
 
@@ -139,19 +139,19 @@ to use based on their performance and respective statistics.
 :wave: how do we measure dependecies and determine if they dist evenly (NB alg)
 
 
-## The Dataset
+## The Data Set
 
-The dataset used to train the machine learning algorithm is taken from a project
-that tested the effectiveness of five different variations of Naive Bayesian
-classifiers on classifying spam emails. It contains the text of ham and spam
-messages from a member of Enron corpus with random ham-spam ratio
+The data set used to train the machine learning algorithm is taken from a
+project that tested the effectiveness of five different variations of Naive
+Bayesian classifiers on classifying spam emails. It contains the text of ham and
+spam messages from a member of Enron corpus with random ham-spam ratio
 [@metsis2006spam]. These emails are all labeled as ham or spam.
 
 The raw messages of each email generally contain too much information to be
 considered useful to train the classifier. In particular, raw email message text
 has many characters that contribute little to the classification of the
 email. To counteract this, we removed all non-alphabetical characters from the
-from the dataset. Also, we removed any words that were only one character long,
+from the data set. Also, we removed any words that were only one character long,
 such as 'a' and 'I'. Finally, we removed all instances of the word 'the', which
 turned out to be one of the most common words in all the training emails.
 
@@ -159,7 +159,7 @@ Additionally, previous research has shown the usefulness of lemmatization in
 spam filtering [@androutsopoulos2000evaluation], which is the process of
 grouping together variations of the same root word. For instance, a lemmatizer
 would group all instances of the words "include", "includes", and "included" in
-the same category. The dataset that we used to train our algorithm was already
+the same category. The data set that we used to train our algorithm was already
 lemmatized, so we did not need to go through this process ourselves.
 
 Once the email texts were filtered, we then created vectors of word frequencies
@@ -173,8 +173,8 @@ model.
 
 ## Model Results
 
-The confusion matrix generated from the Naive Bayes algorithm is represensted
-in @fig:nb-conf-mat. 
+The confusion matrix generated from the Naive Bayes algorithm is represented in
+@fig:nb-conf-mat.
 
 ![NB Confusion Matrix](images/NB_Confusion_Matrix.png){#fig:nb-conf-mat}
 
