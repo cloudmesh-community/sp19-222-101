@@ -18,4 +18,5 @@ This is the page that shows a prediction for a previously uploaded file.
 ```console
 foo@bar:/sp19-222-101/project-code# make docker-all
 ```
-5. Profit
+5. Open a web browser and go to http://localhost:8080
+6. Profit
