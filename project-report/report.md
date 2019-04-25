@@ -84,17 +84,23 @@ our implementation of spam classification. Naive Bayes classifiers are typically
 used for spam filtering and document classification problems
 [@khorsi2007overview]. The Naive Bayes algorithm relies on Bayes' probability
 theorem, which expresses a relationship between the probability of the occurence
-of an event E given the occurence of other events, $x_1$ through $x_n$
-[@zhang2004optimality]. In terms of classification, event E would be the
-classication of a data point, and x1 through xn are the features of that data
-point. The underlying assumption of the Naive Bayes classifier is that each of
-the features are independent of the value of the class variable, which
-simplifies the calculations significantly. As a result, this classification
-method is fast compared to more sophisticated methods. Despite the "naive"
-assumptions of the independence of each feature, the end classification is
-sensitive to the distribution of dependencies between all features
-[@zhang2004optimality], which makes this method successful when classifying
-trends in natural language situations.
+of an event $c$ given the occurence of other events, $x_1$ through $x_n$
+[@zhang2004optimality]. Representing $E$ as $(x_1, x_2, ... x_n)$, the
+probability of an event $c$ given $E$ is:
+
+\begin{equation}
+P(c|E)=\frac{P(E|c)P(c)}{P(E)}
+\end{equation}
+
+In terms of classification, the vector $E$ would be the features of the data point,
+and $c$ is the features of that data point. The underlying assumption
+of the Naive Bayes classifier is that each of the features are independent of
+the value of the class variable, which simplifies the calculations
+significantly. As a result, this classification method is fast compared to more
+sophisticated methods. Despite the "naive" assumptions of the independence of
+each feature, the end classification is sensitive to the distribution of
+dependencies between all features [@zhang2004optimality], which makes this
+method successful when classifying trends in natural language situations.
 
 :wave: how do you test for independence ? What is natural language?
 
