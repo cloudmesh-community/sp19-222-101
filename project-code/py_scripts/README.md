@@ -29,6 +29,6 @@ Randomizes given arrays using the same seed for both arrays.
 Makes a prediction from model for the given file. (spam or ham)
 
 
-
+***
 
 More info can be found in the project report located at */project-report/report.md*
