@@ -37,14 +37,28 @@ The goal is the creation of a service that can classify spam emails. By the term
 "spam email", we refer to emails that are sent with malicious intent against the
 recipient. Emails without malicious intent will be referred to as a "ham email".
 We are exploring the possibility of predicting malicious intent in a given email
-using a machine learning algorithm.
+using a machine learning algorithm. Classifying malicious emails can prevent
+users from being affected by phishing scams and malware.
 
-Classifying malicious emails can prevent harmful situations for users who are
-unaware of the dangers of phishing. Spam email often directs users toward dangerous
-websites or download malware or other unwanted software to the host computer. An 
-example of malware is ...give an example and what it does.
+Phishing describes a process in which an attacker impersonates a trustworthy
+third party in an attempt to obtain sensitive information
+[jagatic2007social]. In a recent phishing attack, a link was sent to Snapchat
+users telling them to enable two-step authentication. This link collected the
+login information of more than 50,000 Snapchat users. Users were under the
+impression that they were making their private information more secure, but they
+instead exposed their personal information to hackers, demonstrating how
+phishing can be particularly difficult to detect.
 
-:wave: Give an example of malware and what can be done with phishing emails. 
+Spam emails can also have dangerous attachments that contain malware. When these
+attachments are downloaded, the malware is unloaded onto the computer system as
+well. A common example of malware is called ransomware, which encrypts local
+files and network files, effectively preventing the user from accessing their
+own files. Then, the ransomware will ask the user to pay in exchange to decrypt
+their file. Even if the user pays to decrypt their data, the attacker often
+still has control over the user's data and may lead to potential identity theft
+[bridges2008changing].
+
+:wave::heavy_check_mark: Give an example of malware and what can be done with phishing emails. 
 
 It is also important to minimize the number of false positives - i.e. minimize
 the number of ham emails that are erroneously labeled as spam. This practice
@@ -58,22 +72,22 @@ or make full paragraphs.
 
 ## The Algorithm
 
-We considered the Naive Bayes and Support Vector Machine (SVM) algorithms
-for our implementation of spam classification. Naive Bayes
-classifiers are typically used for spam filtering and
-document classification problems [@khorsi2007overview]. The Naive Bayes
-algorithm relies on Bayes' probability theorem, which expresses a relationship
-between the probability of the occurence of an event E given the occurence of
-other events, $x_1$ through $x_n$ [@zhang2004optimality]. In terms of classification,
-event E would be the classication of a data point, and x1 through xn are the
-features of that data point. The underlying assumption of the Naive Bayes
-classifier is that each of the features are independent of the value of the
-class variable, which simplifies the calculations significantly. As a result,
-this classification method is fast compared to more sophisticated
-methods. Despite the "naive" assumptions of the independence of each feature,
-the end classification is sensitive to the distribution of dependencies between all
-features [@zhang2004optimality], which makes this method successful when
-classifying trends in natural language situations.
+We considered the Naive Bayes and Support Vector Machine (SVM) algorithms for
+our implementation of spam classification. Naive Bayes classifiers are typically
+used for spam filtering and document classification problems
+[@khorsi2007overview]. The Naive Bayes algorithm relies on Bayes' probability
+theorem, which expresses a relationship between the probability of the occurence
+of an event E given the occurence of other events, $x_1$ through $x_n$
+[@zhang2004optimality]. In terms of classification, event E would be the
+classication of a data point, and x1 through xn are the features of that data
+point. The underlying assumption of the Naive Bayes classifier is that each of
+the features are independent of the value of the class variable, which
+simplifies the calculations significantly. As a result, this classification
+method is fast compared to more sophisticated methods. Despite the "naive"
+assumptions of the independence of each feature, the end classification is
+sensitive to the distribution of dependencies between all features
+[@zhang2004optimality], which makes this method successful when classifying
+trends in natural language situations.
 
 :wave: how do you test for independence ? What is natural language?
 
@@ -223,7 +237,3 @@ performance of the SVM model. Once the server has made a prediction and has
 performance statistics, it uses the render_template function from the Flask
 package to display an HTML file with the returned variables. This is what the
 user finally sees after uploading their email file.
-
-## Sources
-
-(will remove) * <https://staysafeonline.org/stay-safe-online/online-safety-basics/spam-and-phishing/>
