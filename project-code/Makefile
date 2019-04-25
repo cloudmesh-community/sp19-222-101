@@ -8,12 +8,12 @@ docker-all: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build -t sp19-222-101/spam:latest .
+	docker build --no-cache --pull -t sp19-222-101/spam:latest .
 	@echo "imgage DONE"
 
 docker-start:
 	@echo "starting the service in container..."
-	docker run -i -t -p 8080:8080 sp19-222-101/spam /bin/bash
+	docker run -t -p 8080:8080 sp19-222-101/spam /bin/bash
 
 service:
 	@echo "creating the service..."
