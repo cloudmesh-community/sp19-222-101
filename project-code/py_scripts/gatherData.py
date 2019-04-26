@@ -77,8 +77,7 @@ def upload():
 
     return render_template("showModel.html", prediction=result, 
     filename=filename, conf_matr_values=conf_matr_values, 
-    total=total, description=description, scores=svm_scores,
-    words=dict_words, nums=dict_nums, port=port)
+    total=total, description=description, scores=svm_scores, port=port)
 
 
 
