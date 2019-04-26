@@ -180,6 +180,7 @@ The confusion matrix generated from the Naive Bayes algorithm is represented in
 
 The confusion matrix generated from the SVM algorithm is represented in 
 @fig:svm-conf-mat.
+
 ![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png){#fig:svm-conf-mat}
 
 Although the Naive Bayes method correctly identified more ham as ham, it also
@@ -224,6 +225,7 @@ to remove once installed.
 
 The following diagram @fig:classification-workflow shows the basic workflow of
 our server:
+
 ![Classification Flowchart](images/classification_workflow.png)
 {#fig:classification-workflow}
 
