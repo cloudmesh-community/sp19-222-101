@@ -32,3 +32,8 @@ This will take several minutes to complete. When it is ready, the output on the 
 ```console
 foo@bar:~/$ make docker-clean
 ```
+When this is done, the output will look similar to this:
+```console
+Removed container container_name
+DONE
+```
