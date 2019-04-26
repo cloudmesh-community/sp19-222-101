@@ -18,7 +18,12 @@ This is the page that shows a prediction for a previously uploaded file.
 ```console
 foo@bar:/sp19-222-101/project-code# make docker-all
 ```
-5. Open a web browser and go to http://localhost:8080
+This will take several minutes to complete. When it is ready, the output on the terminal window will look similar to this:
+```console
+* Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+* Restarting with stat
+```
+5. Once this is done, open a web browser and go to http://localhost:8080
 
 ## How to stop service:
 1. Open a new terminal window
