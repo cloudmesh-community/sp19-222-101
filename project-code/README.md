@@ -10,7 +10,7 @@ This is the page that shows a prediction for a previously uploaded file.
 
 ***
 
-## How to Run:
+## How to Run Service:
 1. Make sure you have Docker installed
 2. Download Dockerfile and Makefile
 3. Open a new terminal window and cd into the directory where the Dockerfile and Makefile are stored.
@@ -25,7 +25,7 @@ This will take several minutes to complete. When it is ready, the output on the 
 ```
 5. Once this is done, open a web browser and go to http://localhost:8080
 
-## How to stop service:
+## How to Stop Service:
 1. Open a new terminal window
 2. cd into the directory where Dockerfile and Makefile are stored
 3. In the terminal shell, type:
