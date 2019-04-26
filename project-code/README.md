@@ -13,18 +13,17 @@ This is the page that shows a prediction for a previously uploaded file.
 ## How to Run:
 1. Make sure you have Docker installed
 2. Download Dockerfile and Makefile
-3. cd into the directory where Dockerfile and Makefile are stored
-4. open a new terminal window and type:  
+3. Open a new terminal window and cd into the directory where the Dockerfile and Makefile are stored.
+4. In the terminal shell, type:  
 ```console
 foo@bar:/sp19-222-101/project-code# make docker-all
 ```
 5. Open a web browser and go to http://localhost:8080
-6. Profit
 
 ## How to stop service:
 1. Open a new terminal window
 2. cd into the directory where Dockerfile and Makefile are stored
-3. type:
+3. In the terminal shell, type:
 ```console
 foo@bar:~/$ make docker-clean
 ```
