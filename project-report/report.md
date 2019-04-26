@@ -226,8 +226,7 @@ to remove once installed.
 The following diagram @fig:classification-workflow shows the basic workflow of
 our server:
 
-![Classification Flowchart](images/classification_workflow.png)
-{#fig:classification-workflow}
+![Classification Flowchart](images/classification_workflow.png){#fig:classification-workflow}
 
 ### The Upload Function and Classification
 
