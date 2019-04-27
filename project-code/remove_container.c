@@ -4,7 +4,7 @@
 
 int main(void)
 {
-   static const char filename[] = "dockerContainers.txt";
+   static const char filename[] = "docker_containers.txt";
    FILE *file = fopen(filename, "r");
    if(file != NULL)
    {
