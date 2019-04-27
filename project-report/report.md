@@ -2,15 +2,17 @@
 
 :warning: This is in review 
 
-:warning: the OpenAPI spec and service seems incomplete
-
 :heavy_check_mark: I want a more in-depth discussion of the algorithm you
 discuss margins, distrubutions, hyper-planes but don't really tell me what or
 how these things are calculated. In this case we can get into the weeds of the
 path, I don't need a derivation but equations can be helpful.
 
+:question: How does it look now?
+
 :question: How do we cite equations? :smiley: You can seed them just like a
 table. Give me the equation and I can showcase.
+
+:arrow_right: Here is an equation, from [@zhang2004optimality] $$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$$
 
 :question: I put a question mark by our equations below. They are formatted as
 Latex equations, I think.
@@ -256,10 +258,12 @@ successfully sees the classification results, they are given the option to
 return to the home page via another JavaScript button, where they can upload
 another email for classification.
 
-We created a Dockerfile that contains all the necessary files needed to host the
-server. Running the server in a container such as Docker is beneficial because
-installation will not interfere with the host system, and the container is easy
-to remove once installed.
+We created a Dockerfile and a Makefile that contains all the necessary files and
+commands needed to host the server. This Dockerfile runs Ubuntu and runs
+commands to clone files from our Github to get the service running. Running the
+server in a container such as Docker is beneficial because installation will not
+interfere with the host system, and the container is easy to remove once
+installed.
 
 The following diagram @fig:classification-workflow shows the basic workflow of
 our server:
@@ -288,13 +292,13 @@ server. Upon calling the upload function and successfully creating a feature
 vector for the user's uploaded email, the server uses pickle to load the saved
 model and predicts whether the user's email is ham or spam.
 
-The final piece of information that the upload function calculates is a
-performance statistics for the SVM model, including accuracy, precision,
-sensitivity, recall, and F1 score. This gives the user insight on the
-performance of the SVM model. Once the server has made a prediction and has
-performance statistics, it uses the render_template function from the Flask
-package to display an HTML file with the returned variables. This is what the
-user finally sees after uploading their email file.
+The final pieces of information that the upload function calculates are
+performance statistics for the SVM model to create a confusion matrix, from
+which the user can calculate model metrics such as precision and recall. This
+gives the user insight on the performance of the SVM model. Once the server has
+made a prediction and has performance statistics, it uses the render_template
+function from the Flask package to display an HTML file with the returned
+variables. This is what the user finally sees after uploading their email file.
 
 ## Specification
 
