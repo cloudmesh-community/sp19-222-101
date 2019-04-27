@@ -9,9 +9,6 @@ margins, distrubutions, hyper-planes but don't really tell me what or how these
 things are calculated. In this case we can get into the weeds of the path, I
 don't need a derivation but equations can be helpful.
 
-:wave: math in text can be shown with ^ and _ for super and power scripts by
-putting in between money signs $ $.
-
 :question: How do we cite equations? :smiley: You can seed them just like a
 table. Give me the equation and I can showcase.
 
@@ -75,16 +72,24 @@ user to determine the legitimacy of their received emails.
 
 ## The Algorithm
 
+We considered the Naive Bayes and Support Vector Machine (SVM) algorithms for
+our implementation of spam classification. Naive Bayes and SVM are both
+supervised learning algorithms, which means that they are trained with data that
+is already labeled. Both algorithms have strengths and weaknesses. The Naive
+Bayes algorithm generally is faster and is less computationally complex
+[@zhang2004optimality]. SVM is much slower than Naive Bayes, but typically tend
+to be more statistically robust [@sculley2007relaxed]. We experimented with both
+algorithms and chose which one to use based on their performance and respective
+statistics.
+
 ### Naive Bayes
 
-We considered the Naive Bayes and Support Vector Machine (SVM) algorithms for
-our implementation of spam classification. Naive Bayes classifiers are typically
-used for spam filtering and document classification problems
-[@khorsi2007overview]. The Naive Bayes algorithm relies on Bayes' probability
-theorem, which expresses a relationship between the probability of the
-occurrence of an event $c$ given the occurrence of other events, $x_1$ through
-$x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1, x_2, ... x_n)$, the
-probability of an event $c$ given $E$ is:
+Naive Bayes classifiers are very commonly used for spam filtering and document
+classification problems [@khorsi2007overview]. The Naive Bayes algorithm relies
+on Bayes' probability theorem, which expresses a relationship between the
+probability of the occurrence of an event $c$ given the occurrence of other
+events, $x_1$ through $x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1,
+x_2, ... x_n)$, the probability of an event $c$ given $E$ is:
 
 $$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$$
 
@@ -107,19 +112,23 @@ classifier run on a data set of 2893 total messages:
 
 ![NB Ling-Spam Results[@androutsopoulos2000evaluation]](images/NB_LS_Results.png){#fig:nb_example_results}
 
-It should be mentioned that recall and precision are both standard metrics used
-to evaluate the effectiveness of a model. Recall is defined as the number of
-true positives divided by the sum of true positives and false negatives. In
-other words, to put that definition in context of the previous experiment,
-recall measures the ratio of spam emails correctly identified as spam compared
-to the number of actual spam emails in the data set. Precision is defined as the
-number of true positives divided by the sum of true positives and false
-positives. In other words, to put that definition in context of the previous
-experiment, precision measures the ratio of spam emails correctly identified as
-spam compared to the number of emails the classifier thinks are spam. For both
-metrics, higher percentages show a superior model, and the previous figure
-demonstrates decently high percentages for recall and precision when using Naive
-Bayes as a spam email classifier.
+#### Metrics
+
+In the previous figure, the performance of Naive Bayes were measured by recall
+and precision, which are both standard metrics used to evaluate the
+effectiveness of a model. Recall is defined as the number of true positives
+divided by the sum of true positives and false negatives. In other words, to put
+that definition in context of the Naive Bayes experiment, recall measures the
+ratio of spam emails correctly identified as spam compared to the number of
+actual spam emails in the data set.
+
+Precision is defined as the number of true positives divided by the sum of true
+positives and false positives. In other words, to put that definition in context
+of the Naive Bayes experiment, precision measures the ratio of spam emails
+correctly identified as spam compared to the number of emails the classifier
+thinks are spam. For both metrics, higher percentages show a superior model, and
+the previous figure demonstrates decently high percentages for recall and
+precision when using Naive Bayes as a spam email classifier.
 
 :heavy_check_mark: I read the formulas to calculate dependencies and how that
 affects the effectiveness of Naive Bayes...definitely over my head, I am not
@@ -164,13 +173,7 @@ dataset.
 :wave: how would you describe a hyperplane to your aunt or uncle? include that 
 description here.
 
-Naive Bayes and SVM are both supervised learning algorithms, which means that
-they are trained with data that is already labeled. Both algorithms have
-strengths and weaknesses. The Naive Bayes algorithm gives optimal solutions when
-dependencies distribute evenly [@zhang2004optimality]. SVM is much slower than
-Naive Bayes, but typically tend to be more statistically robust
-[@sculley2007relaxed]. We experimented with both algorithms and chose which one
-to use based on their performance and respective statistics.
+
 
 ## The Data Set
 
