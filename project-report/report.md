@@ -12,11 +12,15 @@ don't need a derivation but equations can be helpful.
 :wave: math in text can be shown with ^ and _ for super and power scripts by
 putting in between money signs $ $.
 
-:question: How do we cite equations? :smiley: You can seed them just like a table. Give me the equation and I can showcase.
+:question: How do we cite equations? :smiley: You can seed them just like a
+table. Give me the equation and I can showcase.
 
-:question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
+:question: I put a question mark by our equations below. They are formatted as
+Latex equations, I think.
 
-:wave: remove the big text CLASSIFICATION WORKFLOW in the image. Images have captions which you correctly ues, but such headlines do not belong in an image
+:wave::heavy_check_mark: remove the big text CLASSIFICATION WORKFLOW in the
+image. Images have captions which you correctly ues, but such headlines do not
+belong in an image
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
@@ -133,15 +137,35 @@ models construct hyper-planes in the feature space of the dataset which can be
 used for classification. The hyper-plane is chosen by finding the optimal plane
 that maximizes its margins of separation between points of all classes
 [@gunn1998support]. In other words, data points are separated from the others
-based on their features in an optimal manner. SVM algorithms are very effective
-classifiers when working with datasets that utilize a large number of features
-[@gunn1998support]. In the case of emails, we can calculate the frequency of
-words contained in the email, which will be a vector with a large number of
-features [@khorsi2007overview]. As a result, SVM is an appropriate model to
-classify spam emails due to the high dimensional dataset.
+based on their features in an optimal manner.
+
+To better illustrate how SVM works, one can imagine all points of a data set
+plotted based on their attributes. The data points that belong to a certain
+classification will generally be plotted together into regions due to having
+similar attributes. A hyper-plane is an imaginary divider between these
+classification regions that is mathematically calculated based on distance. The
+following figure @fig:svm_2D_example shows a visualization of a two-dimensional
+hyperplane:
+
+![SVM 2D Visualization[@gunn1998support]](images/SVM_example.png){#fig:svm_2D_example}
+
+The figure shows a divider between general regions of points classified as blue
+and points classified as red. Notice that the hyper-plane is imperfect; there
+are some red points on the blue side of the hyper-plane, and there are some blue
+points on the red side. Error is inevitable, but it can be minimized
+mathematically. To make a classification on a new piece of data, the algorithm
+plots the attributes of a new point and makes a prediction based on which side
+of the hyper-plane the point falls on.
+
+SVM algorithms are very effective classifiers when working with datasets that
+utilize a large number of features [@gunn1998support]. In the case of emails, we
+can calculate the frequency of words contained in the email, which will be a
+vector with a large number of features [@khorsi2007overview]. As a result, SVM
+is an appropriate model to classify spam emails due to the high dimensional
+dataset.
 
 :wave: how would you describe a hyperplane to your aunt or uncle? include that 
-description here. 
+description here.
 
 Naive Bayes and SVM are both supervised learning algorithms, which means that
 they are trained with data that is already labeled. Both algorithms have
