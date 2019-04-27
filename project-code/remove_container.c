@@ -37,7 +37,14 @@ int main(void)
 	 }
 	 if(prevWord)
 	 {
+		char command[128];
+		strcpy(command, "docker rm ");
+		strcat(command, prevWord);
 	   printf("Last word is: %s\n", prevWord);
+		printf("Command is %s\n", command);
+		
+		system(command);
+
 	   free(prevWord);
 	 }
 	 if(word)
