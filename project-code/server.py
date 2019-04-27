@@ -39,4 +39,4 @@ app.add_error_handler(405, method_not_allowed)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=myPort, debug=True)
+    app.run(host="0.0.0.0", port=myPort, debug=False)
