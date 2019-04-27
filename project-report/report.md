@@ -18,9 +18,6 @@ table. Give me the equation and I can showcase.
 :question: I put a question mark by our equations below. They are formatted as
 Latex equations, I think.
 
-:wave::heavy_check_mark: remove the big text CLASSIFICATION WORKFLOW in the
-image. Images have captions which you correctly ues, but such headlines do not
-belong in an image
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
@@ -147,7 +144,7 @@ classification regions that is mathematically calculated based on distance. The
 following figure @fig:svm_2D_example shows a visualization of a two-dimensional
 hyperplane:
 
-![SVM 2D Visualization[@gunn1998support]](images/SVM_example.png){#fig:svm_2D_example}
+![SVM 2D Visualization[@gunn1998support]](images/SVM_2D_example.png){#fig:svm_2D_example}
 
 The figure shows a divider between general regions of points classified as blue
 and points classified as red. Notice that the hyper-plane is imperfect; there
