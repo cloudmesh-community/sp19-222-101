@@ -34,6 +34,6 @@ foo@bar:~/$ make docker-clean
 ```
 When this is done, the output will look similar to this:
 ```console
-Removed container 'container_name'
+image removed
 DONE
 ```
