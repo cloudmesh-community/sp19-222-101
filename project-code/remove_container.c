@@ -25,8 +25,6 @@ int main(void)
 	 
 	 while(word != NULL)
 	 {
-	    printf("%s\n", word);
-
 	    prevWord = malloc(strlen(word));
 	    prevWord = strcpy(prevWord, word);
 
@@ -37,15 +35,13 @@ int main(void)
 	 }
 	 if(prevWord)
 	 {
-		char command[128];
-		strcpy(command, "docker rm ");
-		strcat(command, prevWord);
-	   printf("Last word is: %s\n", prevWord);
-		printf("Command is %s\n", command);
+	    char command[128];
+	    strcpy(command, "docker rm ");
+	    strcat(command, prevWord);
 		
-		system(command);
+	    system(command);
 
-	   free(prevWord);
+	    free(prevWord);
 	 }
 	 if(word)
 	    free(word);
