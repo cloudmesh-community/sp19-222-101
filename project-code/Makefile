@@ -37,7 +37,7 @@ docker-remove:
 	@echo "image removed"
 	docker ps -a
 	docker ps -a > dockerContainers.txt
-	python remove_container.py
+	./container_remover
 
 docker-clean: docker-stop docker-remove
 	@echo "DONE"
