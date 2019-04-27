@@ -34,7 +34,8 @@ Keywords: Spam
 
 ## Abstract
 
-Summarize the question, purpose of the project. 
+:wave: Summarize the question, purpose of the project.
+Spam emails are an issue in cybersecurity because they often contain phishing scams or malware that can steal private information from the user, which can often lead to identity theft. These emails are particularly dangerous because many are seemingly innocuous. We are exploring the possibility of predicting malicious intent in a given email by using a machine learning algorithm. We chose to use the Support Vector Machines (SVM) model to classify spam emails due to its superior classification ability over another commonly used classification model, the Naive Bayes algorithm. Successfully classifying a malicious email can prevent harmful situations for users.
 
 ## Introduction
 
