@@ -273,7 +273,7 @@ performance statistics, it uses the render_template function from the Flask
 package to display an HTML file with the returned variables. This is what the
 user finally sees after uploading their email file.
 
-# Specification
+## Specification
 
 ```
 swagger: "2.0"
