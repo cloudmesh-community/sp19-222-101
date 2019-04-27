@@ -5,10 +5,12 @@ margins, distrubutions, hyper-planes but don't really tell me what or how these
 things are calculated. In this case we can get into the weeds of the path, I
 don't need a derivation but equations can be helpful.
 
-:wave::question: check how to seed a table and figure (I think we did this correctly?)
+:wave::heavy_check_mark: check how to seed a table and figure
 
 :wave: math in text can be shown with ^ and _ for super and power scripts by
 putting in between money signs $ $.
+
+:question: How do we cite equations?
 
 # Spam Analysis with Spamalot
 
@@ -57,9 +59,6 @@ their file. Even if the user pays to decrypt their data, the attacker often
 still has control over the user's data and may lead to potential identity theft
 [@bridges2008changing].
 
-:wave::heavy_check_mark: Give an example of malware and what can be done with
-phishing emails.
-
 Classifying emails can prevent users from being affected by phishing scams and
 malware. We will use a machine learning algorithm to classify malicious
 emails. An important consideration for the user is to minimize misclassification
@@ -69,13 +68,6 @@ emails that are erroneously labeled as spam. The consequence of
 misclassification is important emails being flagged as malicious and dangerous
 emails being flagged as benign. This would make it even more confusing to the
 user to determine the legitimacy of their received emails.
-
-:wave::heavy_check_mark: the above sentence is jargony this is called miss
-classification you need to discuss why miss classification is bad (i know it is
-obvious).
-
-:warning::heavy_check_mark: A paragraph needs at least 3-5 sentences keep the
-intro one paragraph or make full paragraphs.
 
 ## The Algorithm
 
@@ -93,22 +85,31 @@ P(c|E)=\frac{P(E|c)P(c)}{P(E)}
 \end{equation}
 
 In terms of classification, the vector $E$ would be the features of the data point,
-and $c$ is the features of that data point. The underlying assumption
-of the Naive Bayes classifier is that each of the features are independent of
-the value of the class variable, which simplifies the calculations
-significantly. As a result, this classification method is fast compared to more
-sophisticated methods. Despite the "naive" assumptions of the independence of
-each feature, the end classification is sensitive to the distribution of
-dependencies between all features [@zhang2004optimality], which makes this
-method successful when classifying trends in natural language situations.
+and $c$ is the classification of that data point (either ham or spam). To create a binary
+classifier, with two classifications being $c=spam$ and $c=ham$, the classification of
+a data point with a feature vector $E$ is represented as the following equation for $f_b(E)$:
+
+\begin{equation}
+f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)>=1}
+\end{equation}
+:question: How do we cite equations? The previous two equations come from [@zhang2004optimality].
+
+where the $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using equation 1.
+The Naive Bayes classifier has previously demonstrated excellent precision and recall values
+when classifying spam emails. The following @fig:nb_example_results shows the results of such an experiment of a Naive Bayes classifier run on a data set of 2893 total messages:
+
+![NB Ling-Spam Results [@androutsopoulos2000evaluation]](images/NB_LS_Results.png){#fig:nb_example_results}
 
 :wave: how do you test for independence ? What is natural language?
-
 :warning: what is a distribution of dependecies? State ..the naive assumption
 implies that each feature is independent...the end classification is probably
 sensative to each feature distribution which may or may not be similiar to the
 other feature. Perhaps a better discussion here, you should leave the reader
 satisfied not with more questions.
+:wave: how do we measure dependecies and determine if they dist evenly (NB alg)
+:heavy_check_box: I read the formulas to calculate dependencies and how that affects
+the effectiveness of Naive Bayes...definitely over my head, will not discuss. Instead
+I will just mention that Naive Bayes has been successful in previous spam filter implementations.
 
 SVM is also used to work with natural language classification
 [@khorsi2007overview]. SVM models construct hyper-planes in the feature space of
@@ -133,11 +134,6 @@ dependencies distribute evenly [@zhang2004optimality]. SVM is much slower than
 Naive Bayes, but typically tend to be more statistically robust
 [@sculley2007relaxed]. We experimented with both algorithms and chose which one
 to use based on their performance and respective statistics.
-
-:wave::heavy_check_mark: what is supervised learning
-
-:wave: how do we measure dependecies and determine if they dist evenly (NB alg)
-
 
 ## The Data Set
 
