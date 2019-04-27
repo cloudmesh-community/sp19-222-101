@@ -7,8 +7,6 @@ margins, distrubutions, hyper-planes but don't really tell me what or how these
 things are calculated. In this case we can get into the weeds of the path, I
 don't need a derivation but equations can be helpful.
 
-:wave::heavy_check_mark: check how to seed a table and figure
-
 :wave: math in text can be shown with ^ and _ for super and power scripts by
 putting in between money signs $ $.
 
@@ -16,6 +14,7 @@ putting in between money signs $ $.
 
 :question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
 
+:o: the OpenAPI spec and service seems incomplete
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
