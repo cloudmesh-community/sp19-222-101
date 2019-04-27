@@ -71,45 +71,72 @@ user to determine the legitimacy of their received emails.
 
 ## The Algorithm
 
+###Naive Bayes
 We considered the Naive Bayes and Support Vector Machine (SVM) algorithms for
 our implementation of spam classification. Naive Bayes classifiers are typically
 used for spam filtering and document classification problems
 [@khorsi2007overview]. The Naive Bayes algorithm relies on Bayes' probability
-theorem, which expresses a relationship between the probability of the occurrence
-of an event $c$ given the occurrence of other events, $x_1$ through $x_n$
-[@zhang2004optimality]. Representing $E$ as $(x_1, x_2, ... x_n)$, the
+theorem, which expresses a relationship between the probability of the
+occurrence of an event $c$ given the occurrence of other events, $x_1$ through
+$x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1, x_2, ... x_n)$, the
 probability of an event $c$ given $E$ is:
 
 \begin{equation}
 P(c|E)=\frac{P(E|c)P(c)}{P(E)}
 \end{equation}
 
-In terms of classification, the vector $E$ would be the features of the data point,
-and $c$ is the classification of that data point (either ham or spam). To create a binary
-classifier, with two classifications being $c=spam$ and $c=ham$, the classification of
-a data point with a feature vector $E$ is represented as the following equation for $f_b(E)$:
+In terms of classification, the vector $E$ would be the features of the data
+point, and $c$ is the classification of that data point (either ham or spam). To
+create a binary classifier, with two classifications being $c=spam$ and $c=ham$,
+the classification of a data point with a feature vector $E$ is represented as
+the following equation for $f_b(E)$:
 
 \begin{equation}
 f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)>=1}
 \end{equation}
-:question: How do we cite equations? The previous two equations come from [@zhang2004optimality].
+
+:question: How do we cite equations? The previous two equations come from
+[@zhang2004optimality].
 
 where the $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using equation 1.
-The Naive Bayes classifier has previously demonstrated excellent precision and recall values
-when classifying spam emails. The following @fig:nb_example_results shows the results of such an experiment of a Naive Bayes classifier run on a data set of 2893 total messages:
+The Naive Bayes classification model has previously demonstrated excellent
+precision and recall values when classifying spam emails. The following
+@fig:nb_example_results shows the results of such an experiment of a Naive Bayes
+classifier run on a data set of 2893 total messages:
 
-![NB Ling-Spam Results [@androutsopoulos2000evaluation]](images/NB_LS_Results.png){#fig:nb_example_results}
+![NB Ling-Spam Results[@androutsopoulos2000evaluation]](images/NB_LS_Results.png){#fig:nb_example_results}
+
+It should be mentioned that recall and precision are both standard metrics used
+to evaluate the effectiveness of a model. Recall is defined as the number of
+true positives divided by the sum of true positives and false negatives. In
+other words, to put that definition in context of the previous experiment,
+recall measures the ratio of spam emails correctly identified as spam compared
+to the number of actual spam emails in the data set. Precision is defined as the
+number of true positives divided by the sum of true positives and false
+positives. In other words, to put that definition in context of the previous
+experiment, precision measures the ratio of spam emails correctly identified as
+spam compared to the number of emails the classifier thinks are spam. For both
+metrics, higher percentages show a superior model, and the previous figure
+demonstrates decently high percentages for recall and precision when using Naive
+Bayes as a spam email classifier.
 
 :wave: how do you test for independence ? What is natural language?
-:warning: what is a distribution of dependecies? State ..the naive assumption
-implies that each feature is independent...the end classification is probably
-sensative to each feature distribution which may or may not be similiar to the
-other feature. Perhaps a better discussion here, you should leave the reader
-satisfied not with more questions.
-:wave: how do we measure dependecies and determine if they dist evenly (NB alg)
-:heavy_check_box: I read the formulas to calculate dependencies and how that affects
-the effectiveness of Naive Bayes...definitely over my head, will not discuss. Instead
-I will just mention that Naive Bayes has been successful in previous spam filter implementations.
+
+:warning: what is a distribution of dependecies? State ..the naive assumption implies that
+each feature is independent...the end classification is probably sensative to
+each feature distribution which may or may not be similiar to the other
+feature. Perhaps a better discussion here, you should leave the reader satisfied
+not with more questions.
+
+:wave: how do we measure dependecies and determine if
+they dist evenly (NB alg)
+
+:heavy_check_box: I read the formulas to calculate dependencies and how that
+affects the effectiveness of Naive Bayes...definitely over my head, will not
+discuss. Instead I will just mention that Naive Bayes has been successful in
+previous spam filter implementations.
+
+###Support Vector Machines (SVM)
 
 SVM is also used to work with natural language classification
 [@khorsi2007overview]. SVM models construct hyper-planes in the feature space of
