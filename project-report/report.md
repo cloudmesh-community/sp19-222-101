@@ -1,11 +1,13 @@
+# Spam Analysis with Spamalot
+
 :warning: This is in review 
+
+:warning: the OpenAPI spec and service seems incomplete
 
 :warning: I want a more in-depth discussion of the algorithm you discuss
 margins, distrubutions, hyper-planes but don't really tell me what or how these
 things are calculated. In this case we can get into the weeds of the path, I
 don't need a derivation but equations can be helpful.
-
-:wave::heavy_check_mark: check how to seed a table and figure
 
 :wave: math in text can be shown with ^ and _ for super and power scripts by
 putting in between money signs $ $.
@@ -14,7 +16,7 @@ putting in between money signs $ $.
 
 :question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
 
-# Spam Analysis with Spamalot
+:wave: remove the big text CLASSIFICATION WORKFLOW in the image. Images have captions which you correctly ues, but such headlines do not belong in an image
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
@@ -83,9 +85,7 @@ occurrence of an event $c$ given the occurrence of other events, $x_1$ through
 $x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1, x_2, ... x_n)$, the
 probability of an event $c$ given $E$ is:
 
-\begin{equation}
-P(c|E)=\frac{P(E|c)P(c)}{P(E)}
-\end{equation}
+$$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$$
 
 In terms of classification, the vector $E$ would be the features of the data
 point, and $c$ is the classification of that data point (either ham or spam). To
@@ -93,9 +93,7 @@ create a binary classifier, with two classifications being $c=spam$ and $c=ham$,
 the classification of a data point with a feature vector $E$ is represented as
 the following equation for $f_b(E)$:
 
-\begin{equation}
-f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)}>=1
-\end{equation}
+$$f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)}>=1$$
 
 :question: How do we cite equations? The previous two equations come from
 [@zhang2004optimality].
@@ -271,3 +269,34 @@ performance of the SVM model. Once the server has made a prediction and has
 performance statistics, it uses the render_template function from the Flask
 package to display an HTML file with the returned variables. This is what the
 user finally sees after uploading their email file.
+
+## Specification
+
+```
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title: "spamInfo"
+  description: "An intelligent system to determine whether a given email is spam or not"
+  termsOfService: "http://swagger.io/terms/"
+  contact: 
+    name: "Spamalot"
+  license: 
+    name: "Apache"
+host: "localhost:8080"
+basePath: "/"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "text/html"
+paths: 
+  /upload:
+    post:
+      operationId: py_scripts.gatherData.upload
+      description: "Uploads a file"
+      responses:
+        "201":
+          description: "Upload"  
+```

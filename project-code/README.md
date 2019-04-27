@@ -16,7 +16,7 @@ This is the page that shows a prediction for a previously uploaded file.
 3. Open a new terminal window and cd into the directory where the Dockerfile and Makefile are stored.
 4. In the terminal shell, type:  
 ```console
-foo@bar:/sp19-222-101/project-code# make docker-all
+foo@bar:~/$ make docker-all
 ```
 This will take several minutes to complete. When it is ready, the output on the terminal window will look similar to this:
 ```console
@@ -34,6 +34,6 @@ foo@bar:~/$ make docker-clean
 ```
 When this is done, the output will look similar to this:
 ```console
-Removed container 'container_name'
+image removed
 DONE
 ```
