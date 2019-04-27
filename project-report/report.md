@@ -10,7 +10,7 @@ don't need a derivation but equations can be helpful.
 :wave: math in text can be shown with ^ and _ for super and power scripts by
 putting in between money signs $ $.
 
-:question: How do we cite equations?
+:question: How do we cite equations? :smiley: You can seed them just like a table. Give me the equation and I can showcase.
 
 # Spam Analysis with Spamalot
 
