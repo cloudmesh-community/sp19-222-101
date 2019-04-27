@@ -122,36 +122,25 @@ metrics, higher percentages show a superior model, and the previous figure
 demonstrates decently high percentages for recall and precision when using Naive
 Bayes as a spam email classifier.
 
-:wave: how do you test for independence ? What is natural language?
-
-:warning: what is a distribution of dependecies? State ..the naive assumption implies that
-each feature is independent...the end classification is probably sensative to
-each feature distribution which may or may not be similiar to the other
-feature. Perhaps a better discussion here, you should leave the reader satisfied
-not with more questions.
-
-:wave: how do we measure dependecies and determine if
-they dist evenly (NB alg)
-
 :heavy_check_mark: I read the formulas to calculate dependencies and how that
-affects the effectiveness of Naive Bayes...definitely over my head, will not
-discuss. Instead I will just mention that Naive Bayes has been successful in
-previous spam filter implementations.
+affects the effectiveness of Naive Bayes...definitely over my head, I am not
+able to discuss them accurately. Instead I will just mention the formulas for
+Naive Bayes and how it has been successful in previous spam filter
+implementations.
 
 ### Support Vector Machines (SVM)
 
-SVM is also used to work with natural language classification
-[@khorsi2007overview]. SVM models construct hyper-planes in the feature space of
-the dataset which can be used for classification. The hyper-plane is chosen by
-finding the optimal plane that maximizes its margins of separation between
-points of all classes [@gunn1998support]. In other words, data points are
-separated from the others based on their features in an optimal manner. SVM
-algorithms are very effective classifiers when working with datasets that
-utilize a large number of features [@gunn1998support]. In the case of emails, we
-can calculate the frequency of words contained in the email, which will be a
-vector with a large number of features [@khorsi2007overview]. As a result, SVM
-is an appropriate model to classify spam emails due to the high dimensional
-dataset.
+SVM is also used to work in text classification [@khorsi2007overview]. SVM
+models construct hyper-planes in the feature space of the dataset which can be
+used for classification. The hyper-plane is chosen by finding the optimal plane
+that maximizes its margins of separation between points of all classes
+[@gunn1998support]. In other words, data points are separated from the others
+based on their features in an optimal manner. SVM algorithms are very effective
+classifiers when working with datasets that utilize a large number of features
+[@gunn1998support]. In the case of emails, we can calculate the frequency of
+words contained in the email, which will be a vector with a large number of
+features [@khorsi2007overview]. As a result, SVM is an appropriate model to
+classify spam emails due to the high dimensional dataset.
 
 :wave: how would you describe a hyperplane to your aunt or uncle? include that 
 description here. 
