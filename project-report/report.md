@@ -14,7 +14,7 @@ putting in between money signs $ $.
 
 :question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
 
-:o: the OpenAPI spec and service seems incomplete
+:warning: the OpenAPI spec and service seems incomplete
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
