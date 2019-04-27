@@ -39,6 +39,7 @@ int main(void)
 	    strcpy(command, "docker rm ");
 	    strcat(command, prevWord);
 		
+	    printf("Removing container \'%s\'\n", prevWord);
 	    system(command);
 
 	    free(prevWord);
