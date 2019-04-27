@@ -11,7 +11,8 @@ don't need a derivation but equations can be helpful.
 putting in between money signs $ $.
 
 :question: How do we cite equations? :smiley: You can seed them just like a table. Give me the equation and I can showcase.
-:question: I put a question mark by our equations below.
+
+:question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
 
 # Spam Analysis with Spamalot
 
@@ -93,13 +94,13 @@ the classification of a data point with a feature vector $E$ is represented as
 the following equation for $f_b(E)$:
 
 \begin{equation}
-f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)>=1}
+f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)}>=1
 \end{equation}
 
 :question: How do we cite equations? The previous two equations come from
 [@zhang2004optimality].
 
-where the $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using equation 1.
+where the $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using equation (1).
 The Naive Bayes classification model has previously demonstrated excellent
 precision and recall values when classifying spam emails. The following
 @fig:nb_example_results shows the results of such an experiment of a Naive Bayes
@@ -132,7 +133,7 @@ not with more questions.
 :wave: how do we measure dependecies and determine if
 they dist evenly (NB alg)
 
-:heavy_check_box: I read the formulas to calculate dependencies and how that
+:heavy_check_mark: I read the formulas to calculate dependencies and how that
 affects the effectiveness of Naive Bayes...definitely over my head, will not
 discuss. Instead I will just mention that Naive Bayes has been successful in
 previous spam filter implementations.
