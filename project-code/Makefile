@@ -36,7 +36,7 @@ docker-remove:
 	docker rmi -f sp19-222-101/spam
 	@echo "image removed"
 	docker ps -a
-	docker ps -a > dockerContainers.txt
+	docker ps -a > docker_containers.txt
 	./container_remover
 
 docker-clean: docker-stop docker-remove
