@@ -11,6 +11,7 @@ don't need a derivation but equations can be helpful.
 putting in between money signs $ $.
 
 :question: How do we cite equations? :smiley: You can seed them just like a table. Give me the equation and I can showcase.
+:question: I put a question mark by our equations below.
 
 # Spam Analysis with Spamalot
 
@@ -27,7 +28,6 @@ Keywords: Spam
 
 ---
 
- 
 
 ## Abstract
 
@@ -71,7 +71,8 @@ user to determine the legitimacy of their received emails.
 
 ## The Algorithm
 
-###Naive Bayes
+### Naive Bayes
+
 We considered the Naive Bayes and Support Vector Machine (SVM) algorithms for
 our implementation of spam classification. Naive Bayes classifiers are typically
 used for spam filtering and document classification problems
@@ -136,7 +137,7 @@ affects the effectiveness of Naive Bayes...definitely over my head, will not
 discuss. Instead I will just mention that Naive Bayes has been successful in
 previous spam filter implementations.
 
-###Support Vector Machines (SVM)
+### Support Vector Machines (SVM)
 
 SVM is also used to work with natural language classification
 [@khorsi2007overview]. SVM models construct hyper-planes in the feature space of
