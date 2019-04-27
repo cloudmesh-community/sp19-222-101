@@ -2,6 +2,8 @@
 
 :warning: This is in review 
 
+:warning: the OpenAPI spec and service seems incomplete
+
 :warning: I want a more in-depth discussion of the algorithm you discuss
 margins, distrubutions, hyper-planes but don't really tell me what or how these
 things are calculated. In this case we can get into the weeds of the path, I
@@ -14,7 +16,7 @@ putting in between money signs $ $.
 
 :question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
 
-:warning: the OpenAPI spec and service seems incomplete
+:wave: remove the big text CLASSIFICATION WORKFLOW in the image. Images have captions which you correctly ues, but such headlines do not belong in an image
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
