@@ -1,3 +1,5 @@
+# Spam Analysis with Spamalot
+
 :warning: This is in review 
 
 :warning: I want a more in-depth discussion of the algorithm you discuss
@@ -14,7 +16,6 @@ putting in between money signs $ $.
 
 :question: I put a question mark by our equations below. They are formatted as Latex equations, I think.
 
-# Spam Analysis with Spamalot
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
@@ -271,3 +272,34 @@ performance of the SVM model. Once the server has made a prediction and has
 performance statistics, it uses the render_template function from the Flask
 package to display an HTML file with the returned variables. This is what the
 user finally sees after uploading their email file.
+
+# Specification
+
+```
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title: "spamInfo"
+  description: "An intelligent system to determine whether a given email is spam or not"
+  termsOfService: "http://swagger.io/terms/"
+  contact: 
+    name: "Spamalot"
+  license: 
+    name: "Apache"
+host: "localhost:8080"
+basePath: "/"
+schemes: 
+  - "http"
+consumes: 
+  - "application/json"
+produces: 
+  - "text/html"
+paths: 
+  /upload:
+    post:
+      operationId: py_scripts.gatherData.upload
+      description: "Uploads a file"
+      responses:
+        "201":
+          description: "Upload"  
+```
