@@ -7,7 +7,7 @@ discuss margins, distrubutions, hyper-planes but don't really tell me what or
 how these things are calculated. In this case we can get into the weeds of the
 path, I don't need a derivation but equations can be helpful.
 
-:question: How does it look now?
+:question: Follow-up from the :arrow_up: comment. How does it look now?
 
 :question: How do we cite equations? :smiley: You can seed them just like a
 table. Give me the equation and I can showcase.
