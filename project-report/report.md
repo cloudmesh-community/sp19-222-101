@@ -99,9 +99,10 @@ classification problems [@khorsi2007overview]. The Naive Bayes algorithm relies
 on Bayes' probability theorem, which expresses a relationship between the
 probability of the occurrence of an event $c$ given the occurrence of other
 events, $x_1$ through $x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1,
-x_2, ... x_n)$, the probability of an event $c$ given $E$ is:
+x_2, ... x_n)$, the probability of an event $c$ given $E$ is given in 
+@eqn:equation1 from @zhang2004optimality.
 
-:question: $$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$$
+$$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$$ {eqn:equation1}
 
 In terms of classification, the vector $E$ would be the features of the data
 point, and $c$ is the classification of that data point (either ham or spam). To
