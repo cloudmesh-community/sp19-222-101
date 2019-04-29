@@ -9,13 +9,9 @@ path, I don't need a derivation but equations can be helpful.
 
 :question: Follow-up from the :arrow_up: comment. How does it look now?
 
-:question: How do we cite equations? :smiley: You can seed them just like a
-table. Give me the equation and I can showcase.
-
-:arrow_right: Here is an equation, from [@zhang2004optimality] $$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$$
-
-:question: I put a question mark by our equations below. They are formatted as
-Latex equations, I think.
+:question: Is a conclusion necessary for this project? Since we aren't really 
+testing any hypothesis, it seems like a conclusion section is unneeded.
+But if you are looking for one, what would you like for us to include?
 
 
 | Eric Bower, Tyler Zhang
@@ -100,26 +96,24 @@ on Bayes' probability theorem, which expresses a relationship between the
 probability of the occurrence of an event $c$ given the occurrence of other
 events, $x_1$ through $x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1,
 x_2, ... x_n)$, the probability of an event $c$ given $E$ is given in 
-@eq:equation1 from @zhang2004optimality.
+@eq:equation1 from [@zhang2004optimality].
 
 $$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$${#eq:equation1}
 
 In terms of classification, the vector $E$ would be the features of the data
 point, and $c$ is the classification of that data point (either ham or spam). To
 create a binary classifier, with two classifications being $c=spam$ and $c=ham$,
-the classification of a data point with a feature vector $E$ is represented as
-the following equation for $f_b(E)$:
+the classification of a data point with a feature vector $E$ is given in
+@eq:equation2 from [@zhang2004optimality].
 
-:question: $$f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)}>=1$$
+$$f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)}>=1$${#eq:equation2}
 
-:question: How do we cite equations? The previous two equations come from
-[@zhang2004optimality].
-
-where the $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using equation (1).
-The Naive Bayes classification model has previously demonstrated decent
-precision and recall values when classifying spam emails. The following
-@fig:nb_example_results shows the results of such an experiment of a Naive Bayes
-classifier run on a data set of 2893 total messages:
+The terms $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using @eq:equation1.
+The classification is spam if $f_b(E)$ is greater than or equal to one, and ham
+if $f_b(E)$ is less than one. The Naive Bayes classification model has previously
+demonstrated decent precision and recall values when classifying spam emails. The
+following @fig:nb_example_results shows the results of such an experiment of a
+Naive Bayes classifier run on a data set of 2893 total messages:
 
 ![NB Ling-Spam Results[@androutsopoulos2000evaluation]](images/NB_LS_Results.png){#fig:nb_example_results}
 
@@ -309,7 +303,7 @@ made a prediction and has performance statistics, it uses the render_template
 function from the Flask package to display an HTML file with the returned
 variables. This is what the user finally sees after uploading their email file.
 
-## Specification
+### Specification
 
 ```
 swagger: "2.0"
@@ -338,3 +332,6 @@ paths:
         "201":
           description: "Upload"  
 ```
+
+## Conclusion
+Maybe.
