@@ -9,11 +9,19 @@ path, I don't need a derivation but equations can be helpful.
 
 :question: Follow-up from the :arrow_up: comment. We steered away from describing 
 margins/distributions and explained NB and SVM more generally with formulas and graphics.
-How does it look now?
+How does it look now? :smiley: Good!
 
 :question: Is a conclusion necessary for this project? Since we aren't really 
 testing any hypothesis, it seems like a conclusion section is unneeded.
 But if you are looking for one, what would you like for us to include?
+
+:wave: Yes include a conclusion about who would use this? single users? companies? discuss implentation, potential pitfalls etc etc 3-5 sentences should suffice. 
+
+:wave: General comment the phrase  "In other words" is a bit jargony, you don't need to remove it everywhere but remember in the future that if you need to state something a different way for emphasis you can use something like Stated a different way..or put differently. Again not crititcal but something to think about to imporve your science writing. 
+
+:wave: the same can be said about "as previously mentioned" avoid using these pharases so close togerher.
+
+:smiley: overall this paper is in excellent shape, you should not have to spend too much more time to have a very polished finished product. 
 
 
 | Eric Bower, Tyler Zhang
@@ -69,7 +77,7 @@ still has control over the user's data and may lead to potential identity theft
 [@bridges2008changing].
 
 Classifying emails can prevent users from being affected by phishing scams and
-malware. We will use a machine learning algorithm to classify malicious
+malware. We used a machine learning algorithm to classify malicious
 emails. An important consideration for the user is to minimize misclassification
 of spam emails. In other words, we need to be careful to minimize the number of
 spam emails that are erroneously labeled as ham, and minimize the number of ham
@@ -77,6 +85,8 @@ emails that are erroneously labeled as spam. The consequence of
 misclassification is important emails being flagged as malicious and dangerous
 emails being flagged as benign. This would make it even more confusing to the
 user to determine the legitimacy of their received emails.
+
+:wave: revisist the last two sentecnes of the above they could use some polish.
 
 ## The Algorithm
 
