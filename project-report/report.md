@@ -7,7 +7,9 @@ discuss margins, distrubutions, hyper-planes but don't really tell me what or
 how these things are calculated. In this case we can get into the weeds of the
 path, I don't need a derivation but equations can be helpful.
 
-:question: Follow-up from the :arrow_up: comment. How does it look now?
+:question: Follow-up from the :arrow_up: comment. We steered away from describing 
+margins/distributions and explained NB and SVM more generally with formulas and graphics.
+How does it look now?
 
 :question: Is a conclusion necessary for this project? Since we aren't really 
 testing any hypothesis, it seems like a conclusion section is unneeded.
