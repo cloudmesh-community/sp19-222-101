@@ -10,7 +10,7 @@ too much more time to have a very polished finished product.
 | epbower@iu.edu, tjzhang@iu.edu
 | Indiana University Bloomington
 | hid: sp19-222-101
-| github: [:cloud:](https://github.com/cloudmesh-community/sp19-222-101/blob/master/project-report/report.md)
+| Github: [:cloud:](https://github.com/cloudmesh-community/sp19-222-101/blob/master/project-report/report.md)
 | code: [:cloud:](https://github.com/cloudmesh-community/sp19-222-101/tree/master/project-code)
 
 ---
@@ -72,7 +72,7 @@ our implementation of spam classification. Naive Bayes and SVM are both
 supervised learning algorithms, which means that they are trained with data that
 is already labeled. Both algorithms have strengths and weaknesses. The Naive
 Bayes algorithm generally is faster and less computationally complex
-[@zhang2004optimality]. SVM is slower than Naive Bayes, but typically tends to
+[@zhang2004optimality]. SVM is slower than Naive Bayes but typically tends to
 be more statistically robust [@sculley2007relaxed]. We experimented with both
 algorithms and chose which one to use based on their performance and respective
 statistics.
@@ -113,12 +113,12 @@ In @fig:nb_example_results, two important performance metrics of the Naive Bayes
 algorithm were recall and precision, which are both standard metrics used to
 evaluate the effectiveness of a model. Recall is defined as the number of true
 positives divided by the sum of true positives and false negatives. To put that
-definition in context of a spam classifier, recall measures the ratio of spam
+definition in the context of a spam classifier, recall measures the ratio of spam
 emails correctly identified as spam compared to the number of actual spam emails
 in the data set.
 
 Precision is defined as the number of true positives divided by the sum of true
-positives and false positives. To put that definition in context of a spam
+positives and false positives. To put that definition in the context of a spam
 classifier, precision measures the ratio of spam emails correctly identified as
 spam compared to the number of emails the classifier thinks are spam. For both
 metrics, higher percentages show a superior model. The figure
@@ -129,7 +129,7 @@ precision when using Naive Bayes as a spam email classifier.
 
 SVM is also used to work in text classification [@khorsi2007overview]. SVM
 models construct hyper-planes in the feature space of the dataset which can be
-used for classification. The hyper-plane is chosen by finding the optimal plane
+used for classification. The hyperplane is chosen by finding the optimal plane
 that maximizes its margins of separation between points of all classes
 [@gunn1998support]. In other words, data points are separated from the others
 based on their features in an optimal manner.
@@ -137,7 +137,7 @@ based on their features in an optimal manner.
 To better illustrate how SVM works, one can imagine all points of a data set
 plotted based on their attributes. The data points that belong to a certain
 classification will generally be plotted together in regions because they
-normally have similar attributes. A hyper-plane is an imaginary divider between
+normally have similar attributes. A hyperplane is an imaginary divider between
 these classification regions that is mathematically calculated based on
 distance. The following figure @fig:svm_2D_example shows a visualization of a
 two-dimensional hyperplane:
@@ -145,12 +145,12 @@ two-dimensional hyperplane:
 ![SVM 2D Visualization[@gunn1998support]](images/SVM_2D_example.png){#fig:svm_2D_example}
 
 This figure shows a divider between general regions of points classified as blue
-and points classified as red. Notice that the hyper-plane is imperfect; there
-are some red points on the blue side of the hyper-plane, and there are some blue
+and points classified as red. Notice that the hyperplane is imperfect; there
+are some red points on the blue side of the hyperplane, and there are some blue
 points on the red side. Such error is inevitable, but it can be minimized
 mathematically. To make a classification on a new piece of data, the algorithm
 plots the attributes of a new point and makes a prediction based on which side
-of the hyper-plane the point falls on.
+of the hyperplane the point falls on.
 
 SVM algorithms are very effective classifiers when working with datasets that
 utilize a large number of features [@gunn1998support]. In the case of emails, we
@@ -170,8 +170,8 @@ spam messages from a member of Enron corpus with random ham-spam ratio
 The raw messages of each email generally contain too much information to be
 considered useful to train the classifier. In particular, raw email message text
 has many characters that contribute little to the classification of the
-email. To counteract this, we removed all non-alphabetical characters from the
-from the data set. Also, we removed any words that were only one character long,
+email. To counteract this, we removed all non-alphabetical characters from the 
+data set. Also, we removed any words that were only one character long,
 such as 'a' and 'I'. Finally, we removed all instances of the word 'the', which
 turned out to be one of the most common words in all the training emails.
 
@@ -214,7 +214,7 @@ compared to the number of emails the classifier thinks are spam. For the Naive
 Bayes model, this value is $\frac{193}{18+193}=0.915$. For the SVM model, this
 value is $\frac{343}{136+343}=0.716$.
 
-Although the Naive Bayes method has a higher precision than the SVM, it has a
+Although the Naive Bayes method has higher precision than the SVM, it has a
 significantly lower recall value. The impact this would have on the user is
 dangerous: the confusion matrix @fig:nb-conf-mat shows that the Naive Bayes
 model flags a great number of spam emails as ham, exposing the user to more
@@ -254,7 +254,7 @@ another email for classification.
 We created a Dockerfile and a Makefile that contains all the necessary commands
 needed to host the server. This Dockerfile runs Ubuntu and runs commands to
 clone files from our Github to get the service running. Running the server in a
-container such as Docker is beneficial because installation will not interfere
+container such as Docker is beneficial because the installation will not interfere
 with the host system, and the container is easy to remove once installed.
 
 The following diagram @fig:classification-workflow shows the basic workflow of
@@ -324,7 +324,7 @@ paths:
 ## Conclusion
 
 Our implementation of a spam email classifier is a building block for a more
-sophisticated spam filter. Currently our service is only capable of making
+sophisticated spam filter. Currently, our service is only capable of making
 predictions on one email at a time, and each prediction requires the user to
 upload a new file containing the email text. A more sophisticated spam filter
 would be integrated into an email app and could automatically classify incoming
@@ -333,7 +333,7 @@ imperfect. As seen in @fig:nb_example_results, other researchers achieve
 superior classification performance using Naive Bayes, so there is room for
 improvement.
 
-In its curent state, our implementation is best suited for single users. But
+In its current state, our implementation is best suited for single users. But
 with some further development, such as adding the ability to classify multiple
 emails at once and improving our service's classification performance, a spam
 filter would be a useful tool for company employees. Our service could prevent
