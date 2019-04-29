@@ -2,15 +2,6 @@
 
 :warning: This is in review 
 
-:heavy_check_mark: I want a more in-depth discussion of the algorithm you
-discuss margins, distrubutions, hyper-planes but don't really tell me what or
-how these things are calculated. In this case we can get into the weeds of the
-path, I don't need a derivation but equations can be helpful.
-
-:question: Follow-up from the :arrow_up: comment. We steered away from describing 
-margins/distributions and explained NB and SVM more generally with formulas and graphics.
-How does it look now? :smiley: Good!
-
 :question: Is a conclusion necessary for this project? Since we aren't really 
 testing any hypothesis, it seems like a conclusion section is unneeded.
 But if you are looking for one, what would you like for us to include?
@@ -134,17 +125,17 @@ Naive Bayes classifier run on a data set of 2893 total messages:
 In the previous figure, the performance of Naive Bayes were measured by recall
 and precision, which are both standard metrics used to evaluate the
 effectiveness of a model. Recall is defined as the number of true positives
-divided by the sum of true positives and false negatives. In other words, to put
-that definition in context of the Naive Bayes experiment, recall measures the
+divided by the sum of true positives and false negatives. To put
+that definition in context of a spam classifier, recall measures the
 ratio of spam emails correctly identified as spam compared to the number of
 actual spam emails in the data set.
 
 Precision is defined as the number of true positives divided by the sum of true
-positives and false positives. In other words, to put that definition in context
-of the Naive Bayes experiment, precision measures the ratio of spam emails
+positives and false positives. To put that definition in context
+of a spam classifier, precision measures the ratio of spam emails
 correctly identified as spam compared to the number of emails the classifier
-thinks are spam. For both metrics, higher percentages show a superior model, and
-the previous figure demonstrates decently high percentages for recall and
+thinks are spam. For both metrics, higher percentages show a superior model. The
+figure @fig:nb_example_results demonstrates decently high percentages for recall and
 precision when using Naive Bayes as a spam email classifier.
 
 ### Support Vector Machines (SVM)
@@ -166,7 +157,7 @@ hyperplane:
 
 ![SVM 2D Visualization[@gunn1998support]](images/SVM_2D_example.png){#fig:svm_2D_example}
 
-The figure shows a divider between general regions of points classified as blue
+This figure shows a divider between general regions of points classified as blue
 and points classified as red. Notice that the hyper-plane is imperfect; there
 are some red points on the blue side of the hyper-plane, and there are some blue
 points on the red side. Error is inevitable, but it can be minimized
@@ -197,8 +188,8 @@ from the data set. Also, we removed any words that were only one character long,
 such as 'a' and 'I'. Finally, we removed all instances of the word 'the', which
 turned out to be one of the most common words in all the training emails.
 
-Additionally, previous research has shown the usefulness of lemmatization in
-spam filtering [@androutsopoulos2000evaluation], which is the process of
+Additionally, it has been shown that the process of lemmatization can improve models for
+spam filtering [@androutsopoulos2000evaluation]. Lemmatization is the process of
 grouping together variations of the same root word. For instance, a lemmatizer
 would group all instances of the words "include", "includes", and "included" in
 the same category. The data set that we used to train our algorithm was already
@@ -226,7 +217,7 @@ The confusion matrix generated from the SVM algorithm is represented in
 ![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png){#fig:svm-conf-mat}
 
 One can use the above confusion matrices to obtain metrics for each model. As
-previously mentioned, recall measures the ratio of spam emails correctly
+previously stated, recall measures the ratio of spam emails correctly
 identified as spam compared to the number of actual spam emails in the data
 set. For the Naive Bayes model, this value is $\frac{193}{203+193}=0.487$. For
 the SVM model, this value is $\frac{343}{53+343}=0.866$.
