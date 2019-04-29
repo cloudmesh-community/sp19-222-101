@@ -317,7 +317,6 @@ info:
   version: "0.0.1"
   title: "spamInfo"
   description: "An intelligent system to determine whether a given email is spam or not"
-  termsOfService: "http://swagger.io/terms/"
   contact: 
     name: "Spamalot"
   license: 
