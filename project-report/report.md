@@ -2,17 +2,8 @@
 
 :warning: This is in review 
 
-:question: Is a conclusion necessary for this project? Since we aren't really 
-testing any hypothesis, it seems like a conclusion section is unneeded.
-But if you are looking for one, what would you like for us to include?
-
-:wave: Yes include a conclusion about who would use this? single users? companies? discuss implentation, potential pitfalls etc etc 3-5 sentences should suffice. 
-
-:wave: General comment the phrase  "In other words" is a bit jargony, you don't need to remove it everywhere but remember in the future that if you need to state something a different way for emphasis you can use something like Stated a different way..or put differently. Again not crititcal but something to think about to imporve your science writing. 
-
-:wave: the same can be said about "as previously mentioned" avoid using these pharases so close togerher.
-
-:smiley: overall this paper is in excellent shape, you should not have to spend too much more time to have a very polished finished product. 
+:smiley: overall this paper is in excellent shape, you should not have to spend
+too much more time to have a very polished finished product.
 
 
 | Eric Bower, Tyler Zhang
@@ -68,16 +59,12 @@ still has control over the user's data and may lead to potential identity theft
 [@bridges2008changing].
 
 Classifying emails can prevent users from being affected by phishing scams and
-malware. We used a machine learning algorithm to classify malicious
-emails. An important consideration for the user is to minimize misclassification
-of spam emails. In other words, we need to be careful to minimize the number of
-spam emails that are erroneously labeled as ham, and minimize the number of ham
-emails that are erroneously labeled as spam. The consequence of
-misclassification is important emails being flagged as malicious and dangerous
-emails being flagged as benign. This would make it even more confusing to the
-user to determine the legitimacy of their received emails.
-
-:wave: revisist the last two sentecnes of the above they could use some polish.
+malware. We used a machine learning algorithm to classify malicious emails. An
+important consideration for the user is to minimize misclassification of spam
+emails. We need to be careful to minimize the number of spam emails that are
+erroneously labeled as ham, and minimize the number of ham emails that are
+erroneously labeled as spam. If misclassification occurs, the user is at risk of
+opening dangerous spam emails or missing important ones.
 
 ## The Algorithm
 
@@ -98,7 +85,7 @@ classification problems [@khorsi2007overview]. The Naive Bayes algorithm relies
 on Bayes' probability theorem, which expresses a relationship between the
 probability of the occurrence of an event $c$ given the occurrence of other
 events, $x_1$ through $x_n$ [@zhang2004optimality]. Representing $E$ as $(x_1,
-x_2, ... x_n)$, the probability of an event $c$ given $E$ is given in 
+x_2, ... x_n)$, the probability of an event $c$ given $E$ is given in
 @eq:equation1 from [@zhang2004optimality].
 
 $$P(c|E)=\frac{P(E|c)P(c)}{P(E)}$${#eq:equation1}
@@ -111,12 +98,13 @@ the classification of a data point with a feature vector $E$ is given in
 
 $$f_b(E)=\frac{P(c=spam|E)}{P(c=ham|E)}>=1$${#eq:equation2}
 
-The terms $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using @eq:equation1.
-The classification is spam if $f_b(E)$ is greater than or equal to one, and ham
-if $f_b(E)$ is less than one. The Naive Bayes classification model has previously
-demonstrated decent precision and recall values when classifying spam emails. The
-following @fig:nb_example_results shows the results of such an experiment of a
-Naive Bayes classifier run on a data set of 2893 total messages:
+The terms $P(c=spam|E)$ and $P(c=ham|E)$ are both calculated using
+@eq:equation1.  The classification is spam if $f_b(E)$ is greater than or equal
+to one, and ham if $f_b(E)$ is less than one. The Naive Bayes classification
+model has previously demonstrated decent precision and recall values when
+classifying spam emails. The following @fig:nb_example_results shows the results
+of such an experiment of a Naive Bayes classifier run on a data set of 2893
+total messages:
 
 ![NB Ling-Spam Results[@androutsopoulos2000evaluation]](images/NB_LS_Results.png){#fig:nb_example_results}
 
@@ -125,17 +113,17 @@ Naive Bayes classifier run on a data set of 2893 total messages:
 In the previous figure, the performance of Naive Bayes were measured by recall
 and precision, which are both standard metrics used to evaluate the
 effectiveness of a model. Recall is defined as the number of true positives
-divided by the sum of true positives and false negatives. To put
-that definition in context of a spam classifier, recall measures the
-ratio of spam emails correctly identified as spam compared to the number of
-actual spam emails in the data set.
+divided by the sum of true positives and false negatives. To put that definition
+in context of a spam classifier, recall measures the ratio of spam emails
+correctly identified as spam compared to the number of actual spam emails in the
+data set.
 
 Precision is defined as the number of true positives divided by the sum of true
-positives and false positives. To put that definition in context
-of a spam classifier, precision measures the ratio of spam emails
-correctly identified as spam compared to the number of emails the classifier
-thinks are spam. For both metrics, higher percentages show a superior model. The
-figure @fig:nb_example_results demonstrates decently high percentages for recall and
+positives and false positives. To put that definition in context of a spam
+classifier, precision measures the ratio of spam emails correctly identified as
+spam compared to the number of emails the classifier thinks are spam. For both
+metrics, higher percentages show a superior model. The figure
+@fig:nb_example_results demonstrates decently high percentages for recall and
 precision when using Naive Bayes as a spam email classifier.
 
 ### Support Vector Machines (SVM)
@@ -188,12 +176,13 @@ from the data set. Also, we removed any words that were only one character long,
 such as 'a' and 'I'. Finally, we removed all instances of the word 'the', which
 turned out to be one of the most common words in all the training emails.
 
-Additionally, it has been shown that the process of lemmatization can improve models for
-spam filtering [@androutsopoulos2000evaluation]. Lemmatization is the process of
-grouping together variations of the same root word. For instance, a lemmatizer
-would group all instances of the words "include", "includes", and "included" in
-the same category. The data set that we used to train our algorithm was already
-lemmatized, so we did not need to go through this process ourselves.
+Additionally, it has been shown that the process of lemmatization can improve
+models for spam filtering [@androutsopoulos2000evaluation]. Lemmatization is the
+process of grouping together variations of the same root word. For instance, a
+lemmatizer would group all instances of the words "include", "includes", and
+"included" in the same category. The data set that we used to train our
+algorithm was already lemmatized, so we did not need to go through this process
+ourselves.
 
 Once the email texts were filtered, we then created vectors of word frequencies
 from each email. These are treated as the features for the machine learning
@@ -211,16 +200,16 @@ The confusion matrix generated from the Naive Bayes algorithm is represented in
 
 ![NB Confusion Matrix](images/NB_Confusion_Matrix.png){#fig:nb-conf-mat}
 
-The confusion matrix generated from the SVM algorithm is represented in 
+The confusion matrix generated from the SVM algorithm is represented in
 @fig:svm-conf-mat.
 
 ![SVM Confusion Matrix](images/SVM_Confusion_Matrix.png){#fig:svm-conf-mat}
 
 One can use the above confusion matrices to obtain metrics for each model. As
-previously stated, recall measures the ratio of spam emails correctly
-identified as spam compared to the number of actual spam emails in the data
-set. For the Naive Bayes model, this value is $\frac{193}{203+193}=0.487$. For
-the SVM model, this value is $\frac{343}{53+343}=0.866$.
+previously stated, recall measures the ratio of spam emails correctly identified
+as spam compared to the number of actual spam emails in the data set. For the
+Naive Bayes model, this value is $\frac{193}{203+193}=0.487$. For the SVM model,
+this value is $\frac{343}{53+343}=0.866$.
 
 As previously mentioned, precision measures the ratio of spam emails correctly
 identified as spam compared to the number of emails the classifier thinks are
@@ -337,4 +326,19 @@ paths:
 ```
 
 ## Conclusion
-Maybe.
+
+Our implementation of a spam email classifier is a building block for a more
+sophisticated spam filter. Currently our service is only capable of making
+predictions on one email at a time, and each prediction requires the user to
+upload a new file containing the email text. A more sophisticated spam filter
+would be integrated into an email app and could automatically predict whether
+incoming emails are spam or not. Additionally, our service's classification
+ability is imperfect. As seen in @fig:nb_example_results, other researchers
+achieve superior classification performance using Naive Bayes, so there is room
+for improvement.
+
+In its curent state, our implementation is best suited for single users. But
+with some further development, such as adding the ability to classify multiple
+emails at once and improving our service's classification performance, a spam
+filter would be a useful tool for company employees. Our service could prevent
+employees from opening dangerous emails that could steal company information.
