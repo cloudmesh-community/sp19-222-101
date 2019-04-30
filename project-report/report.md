@@ -1,10 +1,5 @@
 # Spam Analysis with Spamalot
 
-:warning: This is in review 
-
-:smiley: overall this paper is in excellent shape, you should not have to spend
-too much more time to have a very polished finished product.
-
 
 | Eric Bower, Tyler Zhang
 | epbower@iu.edu, tjzhang@iu.edu
@@ -61,9 +56,9 @@ An email classifier can prevent users from being hit by phishing scams and
 malware. We used a machine learning algorithm to classify malicious emails. An
 important consideration for the user is to minimize misclassification
 errors. When creating our service, we need to be careful to minimize the number
-of spam emails that are erroneously labeled as ham and the number of
-ham emails that are erroneously labeled as spam. If misclassification occurs,
-the user is at risk of opening dangerous spam emails and missing important ones.
+of spam emails that are erroneously labeled as ham and the number of ham emails
+that are erroneously labeled as spam. If misclassification occurs, the user is
+at risk of opening dangerous spam emails and missing important ones.
 
 ## The Algorithm
 
@@ -72,8 +67,8 @@ our implementation of spam classification. Naive Bayes and SVM are both
 supervised learning algorithms, which means that they are trained with data that
 is already labeled. Both algorithms have strengths and weaknesses. The Naive
 Bayes algorithm generally is faster and less computationally complex
-[@zhang2004optimality]. SVM is slower than Naive Bayes but typically tends to
-be more statistically robust [@sculley2007relaxed]. We experimented with both
+[@zhang2004optimality]. SVM is slower than Naive Bayes but typically tends to be
+more statistically robust [@sculley2007relaxed]. We experimented with both
 algorithms and chose which one to use based on their performance and respective
 statistics.
 
@@ -113,9 +108,9 @@ In @fig:nb_example_results, two important performance metrics of the Naive Bayes
 algorithm were recall and precision, which are both standard metrics used to
 evaluate the effectiveness of a model. Recall is defined as the number of true
 positives divided by the sum of true positives and false negatives. To put that
-definition in the context of a spam classifier, recall measures the ratio of spam
-emails correctly identified as spam compared to the number of actual spam emails
-in the data set.
+definition in the context of a spam classifier, recall measures the ratio of
+spam emails correctly identified as spam compared to the number of actual spam
+emails in the data set.
 
 Precision is defined as the number of true positives divided by the sum of true
 positives and false positives. To put that definition in the context of a spam
@@ -145,8 +140,8 @@ two-dimensional hyperplane:
 ![SVM 2D Visualization[@gunn1998support]](images/SVM_2D_example.png){#fig:svm_2D_example}
 
 This figure shows a divider between general regions of points classified as blue
-and points classified as red. Notice that the hyperplane is imperfect; there
-are some red points on the blue side of the hyperplane, and there are some blue
+and points classified as red. Notice that the hyperplane is imperfect; there are
+some red points on the blue side of the hyperplane, and there are some blue
 points on the red side. Such error is inevitable, but it can be minimized
 mathematically. To make a classification on a new piece of data, the algorithm
 plots the attributes of a new point and makes a prediction based on which side
@@ -170,10 +165,10 @@ spam messages from a member of Enron corpus with random ham-spam ratio
 The raw messages of each email generally contain too much information to be
 considered useful to train the classifier. In particular, raw email message text
 has many characters that contribute little to the classification of the
-email. To counteract this, we removed all non-alphabetical characters from the 
-data set. Also, we removed any words that were only one character long,
-such as 'a' and 'I'. Finally, we removed all instances of the word 'the', which
-turned out to be one of the most common words in all the training emails.
+email. To counteract this, we removed all non-alphabetical characters from the
+data set. Also, we removed any words that were only one character long, such as
+'a' and 'I'. Finally, we removed all instances of the word 'the', which turned
+out to be one of the most common words in all the training emails.
 
 It has been shown that the process of lemmatization improves classification
 performance for spam filtering [@androutsopoulos2000evaluation]. Lemmatization
@@ -214,17 +209,17 @@ compared to the number of emails the classifier thinks are spam. For the Naive
 Bayes model, this value is $\frac{193}{18+193}=0.915$. For the SVM model, this
 value is $\frac{343}{136+343}=0.716$.
 
-Although the Naive Bayes method has higher precision than the SVM, it has a
-significantly lower recall value. The impact this would have on the user is
-dangerous: the confusion matrix @fig:nb-conf-mat shows that the Naive Bayes
-model flags a great number of spam emails as ham, exposing the user to more
-malicious emails. On the other hand, the SVM method has a significantly higher
-recall value, but at a lower precision value. The consequences of this are not
-as dire for the user: the confusion matrix @fig:svm-conf-mat shows the SVM model
-flags more ham emails as spam. While this is inconvenient for the user, the SVM
-method is safer because it would expose fewer malicious emails to the user, at
-the cost of flagging benign emails as spam more often. For this reason, we
-decided to use the SVM model for our classification method.
+Although the Naive Bayes method has higher precision than the SVM, it has
+significantly lower recall. The impact this would have on the user is dangerous:
+the confusion matrix @fig:nb-conf-mat shows that the Naive Bayes model flags a
+great number of spam emails as ham, exposing the user to more malicious
+emails. On the other hand, the SVM method has a significantly higher recall
+value, but at a lower precision value. The consequences of this are not as dire
+for the user: the confusion matrix @fig:svm-conf-mat shows the SVM model flags
+more ham emails as spam. While this is inconvenient for the user, the SVM method
+is safer because it would expose fewer malicious emails to the user, at the cost
+of flagging benign emails as spam more often. For this reason, we decided to use
+the SVM model for our classification method.
 
 ## Implementation
 
@@ -254,8 +249,9 @@ another email for classification.
 We created a Dockerfile and a Makefile that contains all the necessary commands
 needed to host the server. This Dockerfile runs Ubuntu and runs commands to
 clone files from our Github to get the service running. Running the server in a
-container such as Docker is beneficial because the installation will not interfere
-with the host system, and the container is easy to remove once installed.
+container such as Docker is beneficial because the installation will not
+interfere with the host system, and the container is easy to remove once
+installed.
 
 The following diagram @fig:classification-workflow shows the basic workflow of
 our server:
